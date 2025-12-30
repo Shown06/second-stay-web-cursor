@@ -1,0 +1,68 @@
+:root {
+  /* Premium Light Luxury Palette */
+  --color-primary: #d4af37;
+  /* Gold as primary brand color */
+  /* Pure White */
+  --color-secondary: #fdfbf7;
+  /* Cream/Off-white */
+  --color-accent: #d4af37;
+  /* Gold */
+  --color-accent-light: #f3e5ab;
+  /* Champagne Gold */
+
+  --color-text-main: #1a1a1a;
+  /* Darker Charcoal for better contrast */
+  --color-text-muted: #4a4a4a;
+  /* Darker Gray */
+  --color-text-light: #ffffff;
+  /* White text for dark overlays */
+
+  --color-background: #ffffff;
+  --color-background-alt: #f8f9fa;
+  /* Very light gray for sections */
+  --color-overlay: rgba(255, 255, 255, 0.95);
+  /* Light overlay */
+  --color-overlay-dark: rgba(0, 0, 0, 0.6);
+  /* For image text readability */
+
+  /* Typography */
+  --font-main: 'Zen Kaku Gothic New', sans-serif;
+  --font-heading: 'Zen Kaku Gothic New', sans-serif;
+
+  /* Professional Kerning */
+  font-feature-settings: "palt";
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+
+  /* Transitions */
+  --transition-fast: 0.3s ease;
+  --transition-medium: 0.6s ease;
+  --transition-slow: 1.2s ease;
+
+  /* Premium Gradients (Light) */
+  --gradient-primary: linear-gradient(135deg, #ffffff 0%, #fdfbf7 100%);
+  --gradient-accent: linear-gradient(135deg, #d4af37 0%, #f3e5ab 100%);
+  --gradient-mesh: radial-gradient(at 0% 0%, rgba(212, 175, 55, 0.1) 0, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(243, 229, 171, 0.15) 0, transparent 50%);
+
+  /* Glassmorphism (Light) */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.8);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+  --backdrop-blur: blur(12px);
+
+  /* Shadows */
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.dark-mode {
+  /* Dark mode overrides if needed, but primary theme is already dark/luxury */
+}
