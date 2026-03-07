@@ -34,10 +34,10 @@ export function createHomePage() {
   concept.innerHTML = `
     <div class="concept-wave-top">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,120 L0,60 C360,0 1080,0 1440,60 L1440,120 Z" fill="#0f1219"/>
-        <path d="M0,60 C360,0 1080,0 1440,60" fill="none" stroke="#D4AF37" stroke-opacity="0.03" stroke-width="12"/>
-        <path d="M0,60 C360,0 1080,0 1440,60" fill="none" stroke="#D4AF37" stroke-opacity="0.08" stroke-width="4"/>
-        <path d="M0,60 C360,0 1080,0 1440,60" fill="none" stroke="#D4AF37" stroke-opacity="0.2" stroke-width="1.5"/>
+        <path d="M0,120 L0,60 C360,40 1080,40 1440,60 L1440,120 Z" fill="#0f1219"/>
+        <path d="M0,60 C360,40 1080,40 1440,60" fill="none" stroke="#D4AF37" stroke-opacity="0.03" stroke-width="12"/>
+        <path d="M0,60 C360,40 1080,40 1440,60" fill="none" stroke="#D4AF37" stroke-opacity="0.08" stroke-width="4"/>
+        <path d="M0,60 C360,40 1080,40 1440,60" fill="none" stroke="#D4AF37" stroke-opacity="0.2" stroke-width="1.5"/>
       </svg>
     </div>
     <div class="concept-bg">

@@ -99,7 +99,7 @@ export function initPageAnimations() {
             });
         });
 
-        // 5. Wave Separator — スクロール連動で線が伸びていくアニメーション
+        // 5. Wave Separator — 他セクションと同じく、スクロールで左→右に線が流れるアニメーション
         const waveSeparators = document.querySelectorAll('.wave-separator svg');
         waveSeparators.forEach(svg => {
             const paths = svg.querySelectorAll('path');
@@ -111,9 +111,9 @@ export function initPageAnimations() {
                     ease: 'none',
                     scrollTrigger: {
                         trigger: svg.closest('.wave-separator'),
-                        start: 'top 90%',
-                        end: 'bottom 40%',
-                        scrub: 0.6,
+                        start: 'top 92%',
+                        end: 'bottom 30%',
+                        scrub: 0.8,
                     }
                 });
             });
