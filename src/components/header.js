@@ -51,17 +51,19 @@ export function createHeader() {
 
   toggle.addEventListener('click', () => {
     nav.classList.add('active');
+    toggle.style.display = 'none';
   });
 
   const closeBtn = header.querySelector('.menu-close');
   closeBtn.addEventListener('click', () => {
     nav.classList.remove('active');
+    toggle.style.display = '';
   });
 
-  // Close menu when clicking a link
   nav.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
       nav.classList.remove('active');
+      toggle.style.display = '';
     });
   });
 

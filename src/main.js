@@ -4,6 +4,7 @@ import './styles/layout.css';
 import './styles/animations.css';
 import './styles/home.css';
 import './styles/business.css';
+import './styles/facilities.css';
 
 import { createHeader } from './components/header.js';
 import { createFooter } from './components/footer.js';
@@ -12,11 +13,11 @@ import { createCompanyPage } from './pages/company.js';
 import { createBusinessPage } from './pages/business.js';
 import { createFacilitiesPage } from './pages/facilities.js';
 import { createNewsPage, createContactPage } from './pages/others.js';
-import { initParallax } from './effects/parallax.js';
 import { initTypewriter } from './effects/typewriter.js';
 import { initCursor } from './components/cursor.js';
 import { initMagneticButtons } from './components/magnetic.js';
 import { openModal } from './components/modal.js';
+import { initGlobalAnimations, initPageAnimations } from './effects/gsap-animations.js';
 
 const app = document.querySelector('#app');
 
@@ -29,76 +30,73 @@ app.appendChild(header);
 app.appendChild(main);
 app.appendChild(footer);
 
-// Router Logic
-const routes = {
-  '': createHomePage,
-  '#top': createHomePage,
-  '#company': createCompanyPage,
-  '#business': createBusinessPage,
-  '#facilities': createFacilitiesPage,
-  '#news': createNewsPage,
-  '#contact': createContactPage
-};
+// Single Page Application Logic
+let isInitialized = false;
 
-function handleRoute() {
-  const hash = window.location.hash || '';
-  const pageCreator = routes[hash] || createHomePage;
-
-  // Transition Effect
-  main.style.opacity = '0';
-
-  // Header Visibility Logic
-  // Allow header to be transparent at the top for all pages (Hero sections)
-  const header = document.querySelector('.header');
-  header.classList.remove('solid');
-  header.classList.remove('scrolled'); // Reset scroll state
-
-  setTimeout(() => {
-    main.innerHTML = '';
-    main.appendChild(pageCreator());
-    window.scrollTo(0, 0);
-
-    // Re-initialize animations
-    initAnimations();
-
-    // Fade in
-    main.style.opacity = '1';
-  }, 300);
+function applyHeroLazyBackgrounds() {
+  main.querySelectorAll('.hero-slide[data-bg]').forEach((el) => {
+    el.style.backgroundImage = `url(${el.getAttribute('data-bg')})`;
+    el.removeAttribute('data-bg');
+  });
 }
 
-// Animation Observer
-function initAnimations() {
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-  };
+function initApp() {
+  if (!isInitialized) {
+    main.innerHTML = '';
+    main.appendChild(createHomePage());
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
+    // 表示を先に出し、重い初期化はアイドル時に実行（体感を軽くする）
+    const runAfterIdle = () => {
+      applyHeroLazyBackgrounds();
+      initPageAnimations();
+      initTypewriter();
+      initCursor();
+      initMagneticButtons();
+    };
+    if (typeof requestIdleCallback !== 'undefined') {
+      requestIdleCallback(runAfterIdle, { timeout: 2000 });
+    } else {
+      setTimeout(runAfterIdle, 100);
+    }
 
-  setTimeout(() => {
-    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .zoom-in, .pulse').forEach(el => {
-      observer.observe(el);
+    main.style.opacity = '1';
+    isInitialized = true;
+  }
+}
+
+function scrollToSection() {
+  const hash = window.location.hash || '#top';
+  const target = document.querySelector(hash);
+
+  // Header Visibility Logic Reset
+  const header = document.querySelector('.header');
+  header.classList.remove('solid');
+  header.classList.remove('scrolled');
+
+  if (target) {
+    // Smooth scroll to the target section
+    const headerOffset = 80;
+    const elementPosition = target.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
     });
-  }, 100); // Slight delay to ensure DOM is ready
+  }
 }
 
 // Event Listeners
-window.addEventListener('hashchange', handleRoute);
+window.addEventListener('hashchange', scrollToSection);
 window.addEventListener('load', () => {
-  handleRoute();
+  // Initialize Lenis global smooth scroll
+  initGlobalAnimations();
 
-  initParallax();
-  initTypewriter();
-  initCursor();
-  initMagneticButtons();
+  // Render initial page
+  initApp();
+
+  // Scroll if hash exists
+  setTimeout(scrollToSection, 500);
 
   // Remove Loading Screen
   const loading = document.getElementById('loading');

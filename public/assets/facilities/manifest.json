@@ -1,0 +1,123 @@
+{
+  "categories": [
+    {
+      "id": "sauna",
+      "label": "サウナ",
+      "description": "プライベートサウナで極上のリラックスタイムを",
+      "images": [
+        "01_sauna/sauna-barrel-night.png",
+        "01_sauna/Output_this_nighttime_rooftop_terrace_scene_in_max-1772364517088.png",
+        "01_sauna/Output_this_sauna_interior_scene_in_maximum_4K_qua-1772364528959.png",
+        "01_sauna/DSC07992-HDR.jpg",
+        "01_sauna/DSC07996.jpg",
+        "01_sauna/DSC08000-HDR.jpg",
+        "01_sauna/DSC08005-HDR.jpg",
+        "01_sauna/DSC08011-HDR-Edit.jpg",
+        "01_sauna/DSC08204.jpg",
+        "01_sauna/DSC08212.jpg",
+        "01_sauna/DSC08237.jpg",
+        "01_sauna/DSC08239.jpg",
+        "01_sauna/DSC08256-HDR.jpg"
+      ]
+    },
+    {
+      "id": "07_theater",
+      "label": "シアター",
+      "description": "100インチオーバーのシアターで没入の一夜を",
+      "images": [
+        "07_theater/Output_this_home_theater_scene_in_maximum_4K_quali-1772364577028.png",
+        "07_theater/Output_this_modern_kitchen_family_scene_in_maximum-1772364569022.png",
+        "07_theater/Output_this_modern_kitchen_party_scene_in_maximum_-1772364548901.png",
+        "07_theater/DSC07966.jpg",
+        "07_theater/DSC07981.jpg",
+        "07_theater/DSC08191.jpg",
+        "07_theater/DSC08200.jpg"
+      ]
+    },
+    {
+      "id": "living",
+      "label": "リビング",
+      "description": "広々としたリビングで寛ぎのひとときを",
+      "images": [
+        "02_living/DSC07934-Edit.jpg",
+        "02_living/DSC07949.jpg",
+        "02_living/DSC07956-Edit.jpg",
+        "02_living/DSC07961.jpg",
+        "02_living/DSC08144.jpg",
+        "02_living/DSC08183.jpg"
+      ]
+    },
+    {
+      "id": "bathroom",
+      "label": "バスルーム",
+      "description": "清潔感あふれるバスルームで旅の疲れを癒す",
+      "images": [
+        "03_bathroom/DSC07796.jpg",
+        "03_bathroom/DSC07799.jpg",
+        "03_bathroom/DSC07834-Edit.jpg",
+        "03_bathroom/DSC07842-HDR-Edit.jpg",
+        "03_bathroom/DSC07869.jpg",
+        "03_bathroom/DSC07912-Edit.jpg",
+        "03_bathroom/DSC08123.jpg",
+        "03_bathroom/DSC08138.jpg"
+      ]
+    },
+    {
+      "id": "bedroom",
+      "label": "ベッドルーム",
+      "description": "上質な眠りをお約束するプライベート空間",
+      "images": [
+        "04_bedroom/DSC07751-HDR.jpg",
+        "04_bedroom/DSC07754.jpg",
+        "04_bedroom/DSC07759.jpg",
+        "04_bedroom/DSC07764.jpg",
+        "04_bedroom/DSC07771.jpg",
+        "04_bedroom/DSC07776.jpg",
+        "04_bedroom/DSC07779.jpg",
+        "04_bedroom/DSC07784.jpg",
+        "04_bedroom/DSC07789.jpg",
+        "04_bedroom/DSC07878-HDR.jpg",
+        "04_bedroom/DSC07883.jpg",
+        "04_bedroom/DSC07905-HDR-Edit.jpg"
+      ]
+    },
+    {
+      "id": "kitchen",
+      "label": "キッチン",
+      "description": "本格的な調理器具を備えたフルキッチン",
+      "images": [
+        "05_kitchen/DSC08032-Edit.jpg",
+        "05_kitchen/DSC08037-Edit.jpg",
+        "05_kitchen/DSC08042-Edit.jpg",
+        "05_kitchen/DSC08047-Edit.jpg",
+        "05_kitchen/DSC08048.jpg",
+        "05_kitchen/DSC08053-Edit.jpg",
+        "05_kitchen/DSC08058-Edit.jpg",
+        "05_kitchen/DSC08063-Edit.jpg",
+        "05_kitchen/DSC08068-Edit.jpg",
+        "05_kitchen/DSC08073-Edit.jpg",
+        "05_kitchen/DSC08090.jpg",
+        "05_kitchen/DSC08100.jpg",
+        "05_kitchen/DSC08105.jpg",
+        "05_kitchen/DSC08108.jpg",
+        "05_kitchen/DSC08115-Edit.jpg",
+        "05_kitchen/DSC08118-Edit.jpg"
+      ]
+    },
+    {
+      "id": "other",
+      "label": "その他",
+      "description": "細部にまでこだわったインテリアと設備",
+      "images": [
+        "06_other/DSC07804.jpg",
+        "06_other/DSC07821.jpg",
+        "06_other/DSC07915.jpg",
+        "06_other/DSC08029.jpg",
+        "06_other/DSC08128.jpg",
+        "06_other/DSC08150.jpg",
+        "06_other/DSC08178-HDR-Edit.jpg",
+        "06_other/DSC08266-HDR.jpg"
+      ]
+    }
+  ]
+}
