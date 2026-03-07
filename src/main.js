@@ -104,6 +104,22 @@ window.addEventListener('load', () => {
     loading.style.opacity = '0';
     setTimeout(() => loading.remove(), 500);
   }
+
+  // Back to Top Button
+  const backToTop = document.getElementById('backToTop');
+  if (backToTop) {
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    }, { passive: true });
+  }
 });
 
 // Global Modal Delegation
