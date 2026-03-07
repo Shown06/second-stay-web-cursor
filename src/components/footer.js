@@ -72,10 +72,10 @@ export function createFooter() {
       </div>
     </div>
 
-    <!-- Footer Middle: Map + Newsletter -->
+    <!-- Footer Middle: 地図のみ（1カラム・広め表示） -->
     <div class="footer-middle">
       <div class="container">
-        <div class="footer-middle-grid">
+        <div class="footer-map-wrap">
           <div class="footer-map">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3276.8!2d135.4!3d34.78!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5YW15bqr55yM5LyK5Li55biC5p2x5pyJ5bKh77yT5LiB55uu77yR77yU77yR!5e0!3m2!1sja!2sjp!4v1"
@@ -87,19 +87,6 @@ export function createFooter() {
               referrerpolicy="no-referrer-when-downgrade"
               title="Second Stay 所在地"
             ></iframe>
-          </div>
-          <div class="footer-newsletter">
-            <h4 class="footer-heading">ニュースレター</h4>
-            <p class="newsletter-desc">最新の施設情報やキャンペーン、限定プランのお知らせをお届けします。</p>
-            <form class="newsletter-form" onsubmit="return false;">
-              <div class="newsletter-input-wrap">
-                <input type="email" placeholder="メールアドレスを入力" class="newsletter-input" required>
-                <button type="submit" class="newsletter-btn" aria-label="登録">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </button>
-              </div>
-              <p class="newsletter-note">※ 配信停止はいつでも可能です</p>
-            </form>
           </div>
         </div>
       </div>
