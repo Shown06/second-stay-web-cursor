@@ -10,6 +10,7 @@
     "gen-manifest": "node scripts/generate-image-manifest.js"
   },
   "devDependencies": {
+    "sharp": "^0.34.5",
     "vite": "^7.2.4"
   },
   "dependencies": {

@@ -8,10 +8,10 @@ export function createHomePage() {
   hero.id = 'top';
   hero.innerHTML = `
     <div class="hero-slider">
-      <div class="hero-slide" style="background-image: url('/assets/facilities/01_sauna/Output_this_sauna_interior_scene_in_maximum_4K_qua-1772364528959.png');"></div>
-      <div class="hero-slide" data-bg="/assets/facilities/01_sauna/sauna-barrel-night.png"></div>
-      <div class="hero-slide" data-bg="/assets/facilities/07_theater/Output_this_home_theater_scene_in_maximum_4K_quali-1772364577028.png"></div>
-      <div class="hero-slide" data-bg="/assets/facilities/07_theater/Output_this_modern_kitchen_family_scene_in_maximum-1772364569022.png"></div>
+      <div class="hero-slide" style="background-image: url('/assets/facilities/01_sauna/Output_this_sauna_interior_scene_in_maximum_4K_qua-1772364528959.webp');"></div>
+      <div class="hero-slide" data-bg="/assets/facilities/01_sauna/sauna-barrel-night.webp"></div>
+      <div class="hero-slide" data-bg="/assets/facilities/07_theater/Output_this_home_theater_scene_in_maximum_4K_quali-1772364577028.webp"></div>
+      <div class="hero-slide" data-bg="/assets/facilities/07_theater/Output_this_modern_kitchen_family_scene_in_maximum-1772364569022.webp"></div>
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content container float">
@@ -107,7 +107,7 @@ export function createHomePage() {
       <div class="art-list">
         <div class="art-card fade-up-scroll">
           <div class="art-card-image image-hover-zoom">
-             <div class="image-inner parallax-img" style="background-image: url('/assets/facilities/07_theater/DSC07966.jpg');"></div>
+             <div class="image-inner parallax-img" style="background-image: url('/assets/facilities/07_theater/DSC07966.webp');"></div>
           </div>
           <div class="art-card-info">
             <div class="art-card-tags">
@@ -133,7 +133,7 @@ export function createHomePage() {
       <!-- Feature 1 -->
       <div class="feature-row fade-up-scroll mt-xl">
         <div class="feature-img image-hover-zoom">
-           <div class="image-inner parallax-img" style="background-image: url('/assets/facilities/01_sauna/sauna-barrel-night.png');"></div>
+           <div class="image-inner parallax-img" style="background-image: url('/assets/facilities/01_sauna/sauna-barrel-night.webp');"></div>
         </div>
         <div class="feature-text">
           <span class="feature-number">01</span>
@@ -145,7 +145,7 @@ export function createHomePage() {
       <!-- Feature 2 -->
       <div class="feature-row reverse fade-up-scroll">
         <div class="feature-img image-hover-zoom">
-           <div class="image-inner parallax-img" style="background-image: url('/assets/facilities/07_theater/Output_this_home_theater_scene_in_maximum_4K_quali-1772364577028.png');"></div>
+           <div class="image-inner parallax-img" style="background-image: url('/assets/facilities/07_theater/Output_this_home_theater_scene_in_maximum_4K_quali-1772364577028.webp');"></div>
         </div>
         <div class="feature-text">
           <span class="feature-number">02</span>
@@ -157,7 +157,7 @@ export function createHomePage() {
       <!-- Feature 3 -->
       <div class="feature-row fade-up-scroll">
         <div class="feature-img image-hover-zoom">
-           <div class="image-inner parallax-img" style="background-image: url('/assets/facilities/07_theater/Output_this_modern_kitchen_party_scene_in_maximum_-1772364548901.png');"></div>
+           <div class="image-inner parallax-img" style="background-image: url('/assets/facilities/07_theater/Output_this_modern_kitchen_party_scene_in_maximum_-1772364548901.webp');"></div>
         </div>
         <div class="feature-text">
           <span class="feature-number">03</span>
@@ -200,13 +200,13 @@ export function createHomePage() {
 
   // 埋め込みフォールバック: Netlify等で manifest が返らない場合でもタブを表示する
   const defaultCategories = [
-    { id: 'sauna', label: 'サウナ', description: 'プライベートサウナで極上のリラックスタイムを', images: ['01_sauna/sauna-barrel-night.png'] },
-    { id: '07_theater', label: 'シアター', description: '100インチオーバーのシアターで没入の一夜を', images: ['07_theater/DSC07966.jpg'] },
-    { id: 'living', label: 'リビング', description: '広々としたリビングで寛ぎのひとときを', images: ['02_living/DSC07934-Edit.jpg'] },
-    { id: 'bathroom', label: 'バスルーム', description: '清潔感あふれるバスルームで旅の疲れを癒す', images: ['03_bathroom/DSC07796.jpg'] },
-    { id: 'bedroom', label: 'ベッドルーム', description: '上質な眠りをお約束するプライベート空間', images: ['04_bedroom/DSC07751-HDR.jpg'] },
-    { id: 'kitchen', label: 'キッチン', description: '本格的な調理器具を備えたフルキッチン', images: ['05_kitchen/DSC08032-Edit.jpg'] },
-    { id: 'other', label: 'その他', description: '細部にまでこだわったインテリアと設備', images: ['06_other/DSC07804.jpg'] },
+    { id: 'sauna', label: 'サウナ', description: 'プライベートサウナで極上のリラックスタイムを', images: ['01_sauna/sauna-barrel-night.webp'] },
+    { id: '07_theater', label: 'シアター', description: '100インチオーバーのシアターで没入の一夜を', images: ['07_theater/DSC07966.webp'] },
+    { id: 'living', label: 'リビング', description: '広々としたリビングで寛ぎのひとときを', images: ['02_living/DSC07934-Edit.webp'] },
+    { id: 'bathroom', label: 'バスルーム', description: '清潔感あふれるバスルームで旅の疲れを癒す', images: ['03_bathroom/DSC07796.webp'] },
+    { id: 'bedroom', label: 'ベッドルーム', description: '上質な眠りをお約束するプライベート空間', images: ['04_bedroom/DSC07751-HDR.webp'] },
+    { id: 'kitchen', label: 'キッチン', description: '本格的な調理器具を備えたフルキッチン', images: ['05_kitchen/DSC08032-Edit.webp'] },
+    { id: 'other', label: 'その他', description: '細部にまでこだわったインテリアと設備', images: ['06_other/DSC07804.webp'] },
   ];
 
   function renderGalleryContent(data) {
@@ -222,7 +222,7 @@ export function createHomePage() {
 
     categories.forEach((cat, i) => {
       const tab = document.createElement('button');
-      tab.className = 'facilities-tab fade-up-scroll';
+      tab.className = 'facilities-tab';
       tab.textContent = cat.label;
       tab.dataset.index = i;
       if (i === 0) tab.classList.add('active');
@@ -233,12 +233,11 @@ export function createHomePage() {
     contentWrapper.appendChild(tabBar);
 
     const descEl = document.createElement('p');
-    descEl.className = 'facilities-description fade-up-scroll';
+    descEl.className = 'facilities-description';
     contentWrapper.appendChild(descEl);
 
     const gridWrapper = document.createElement('div');
     gridWrapper.id = 'facilities-grid-wrapper';
-    gridWrapper.className = 'fade-up-scroll';
     contentWrapper.appendChild(gridWrapper);
 
     switchCategory(0);
