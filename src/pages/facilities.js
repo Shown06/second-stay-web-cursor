@@ -1,3 +1,5 @@
+import { asset } from '../lib/asset-path.js';
+
 export function createFacilitiesPage() {
   const container = document.createElement('div');
   container.className = 'page-container fade-in';
@@ -6,7 +8,7 @@ export function createFacilitiesPage() {
   const heroSection = document.createElement('div');
   heroSection.className = 'page-hero';
   heroSection.style.cssText = `
-    background-image: url('/assets/t2stay.png');
+    background-image: url('${asset('/assets/t2stay.png')}');
     height: 60vh;
     background-size: cover;
     background-position: center;
@@ -55,7 +57,7 @@ export function createFacilitiesPage() {
   let currentIdx = 0;
 
   // ── Fetch Manifest & Build UI ──
-  fetch('/assets/facilities/manifest.json')
+  fetch(asset('/assets/facilities/manifest.json'))
     .then(r => {
       if (!r.ok) throw new Error('Manifest not found');
       return r.json();
@@ -137,7 +139,7 @@ export function createFacilitiesPage() {
     descEl.textContent = cat.description;
 
     // Build image paths
-    currentImages = cat.images.map(f => `/assets/facilities/${f}`);
+    currentImages = cat.images.map(f => asset(`/assets/facilities/${f}`));
 
     // Build grid with fade animation
     const wrapper = galleryContainer.querySelector('#facilities-grid-wrapper');

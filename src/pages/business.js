@@ -1,9 +1,11 @@
+import { asset } from '../lib/asset-path.js';
+
 export function createBusinessPage() {
   const container = document.createElement('div');
   container.className = 'page-container fade-in';
 
   container.innerHTML = `
-    <div class="page-hero" style="background-image: url('/assets/bdstay.png'); height: 50vh; background-size: cover; background-position: center; position: relative; display: flex; align-items: center; justify-content: center; color: white; margin-bottom: var(--spacing-xl);">
+    <div class="page-hero" style="background-image: url('${asset('/assets/bdstay.png')}'); height: 50vh; background-size: cover; background-position: center; position: relative; display: flex; align-items: center; justify-content: center; color: white; margin-bottom: var(--spacing-xl);">
       <div class="overlay" style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5);"></div>
       <div class="container text-center" style="position: relative; z-index: 2;">
         <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 1rem;">Business</h1>
@@ -25,7 +27,7 @@ export function createBusinessPage() {
           <!-- Service 01 -->
           <div class="service-row">
             <div class="service-visual">
-              <div class="service-img" style="background-image: url('/assets/t2stay.png');"></div>
+              <div class="service-img" style="background-image: url('${asset('/assets/t2stay.png')}');"></div>
               <div class="service-number">01</div>
             </div>
             <div class="service-content">
@@ -45,7 +47,7 @@ export function createBusinessPage() {
           <!-- Service 02 -->
           <div class="service-row reverse">
             <div class="service-visual">
-              <div class="service-img" style="background-image: url('/assets/t2stay.png');"></div>
+              <div class="service-img" style="background-image: url('${asset('/assets/t2stay.png')}');"></div>
               <div class="service-number">02</div>
             </div>
             <div class="service-content">
@@ -65,7 +67,7 @@ export function createBusinessPage() {
           <!-- Service 03 -->
           <div class="service-row">
             <div class="service-visual">
-              <div class="service-img" style="background-image: url('/assets/bdstay.png');"></div>
+              <div class="service-img" style="background-image: url('${asset('/assets/bdstay.png')}');"></div>
               <div class="service-number">03</div>
             </div>
             <div class="service-content">

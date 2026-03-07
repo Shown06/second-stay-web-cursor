@@ -1,4 +1,5 @@
 import { fetchPosts } from '../lib/supabase.js';
+import { asset } from '../lib/asset-path.js';
 
 export function createHomePage() {
   const container = document.createElement('div');
@@ -10,10 +11,10 @@ export function createHomePage() {
   hero.id = 'top';
   hero.innerHTML = `
     <div class="hero-slider">
-      <div class="hero-slide" style="background-image: url('/assets/facilities/01_sauna/Output_this_sauna_interior_scene_in_maximum_4K_qua-1772364528959.webp');"></div>
-      <div class="hero-slide" data-bg="/assets/facilities/01_sauna/sauna-barrel-night.webp"></div>
-      <div class="hero-slide" data-bg="/assets/facilities/07_theater/Output_this_home_theater_scene_in_maximum_4K_quali-1772364577028.webp"></div>
-      <div class="hero-slide" data-bg="/assets/facilities/07_theater/Output_this_modern_kitchen_family_scene_in_maximum-1772364569022.webp"></div>
+      <div class="hero-slide" style="background-image: url('${asset('/assets/facilities/01_sauna/Output_this_sauna_interior_scene_in_maximum_4K_qua-1772364528959.webp')}');"></div>
+      <div class="hero-slide" data-bg="${asset('/assets/facilities/01_sauna/sauna-barrel-night.webp')}"></div>
+      <div class="hero-slide" data-bg="${asset('/assets/facilities/07_theater/Output_this_home_theater_scene_in_maximum_4K_quali-1772364577028.webp')}"></div>
+      <div class="hero-slide" data-bg="${asset('/assets/facilities/07_theater/Output_this_modern_kitchen_family_scene_in_maximum-1772364569022.webp')}"></div>
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content container float">
@@ -166,7 +167,7 @@ export function createHomePage() {
       <div class="art-list">
         <div class="art-card fade-up-scroll">
           <div class="art-card-image image-hover-zoom">
-             <div class="image-inner parallax-img" style="background-image: url('/assets/facilities/07_theater/DSC07966.webp');"></div>
+             <div class="image-inner parallax-img" style="background-image: url('${asset('/assets/facilities/07_theater/DSC07966.webp')}');"></div>
           </div>
           <div class="art-card-info">
             <div class="art-card-tags">
@@ -192,7 +193,7 @@ export function createHomePage() {
       <!-- Feature 1 -->
       <div class="feature-row fade-up-scroll mt-xl">
         <div class="feature-img image-hover-zoom">
-           <div class="image-inner parallax-img" style="background-image: url('/assets/facilities/01_sauna/sauna-barrel-night.webp');"></div>
+           <div class="image-inner parallax-img" style="background-image: url('${asset('/assets/facilities/01_sauna/sauna-barrel-night.webp')}');"></div>
         </div>
         <div class="feature-text">
           <span class="feature-number">01</span>
@@ -204,7 +205,7 @@ export function createHomePage() {
       <!-- Feature 2 -->
       <div class="feature-row reverse fade-up-scroll">
         <div class="feature-img image-hover-zoom">
-           <div class="image-inner parallax-img" style="background-image: url('/assets/facilities/07_theater/Output_this_home_theater_scene_in_maximum_4K_quali-1772364577028.webp');"></div>
+           <div class="image-inner parallax-img" style="background-image: url('${asset('/assets/facilities/07_theater/Output_this_home_theater_scene_in_maximum_4K_quali-1772364577028.webp')}');"></div>
         </div>
         <div class="feature-text">
           <span class="feature-number">02</span>
@@ -216,7 +217,7 @@ export function createHomePage() {
       <!-- Feature 3 -->
       <div class="feature-row fade-up-scroll">
         <div class="feature-img image-hover-zoom">
-           <div class="image-inner parallax-img" style="background-image: url('/assets/facilities/07_theater/Output_this_modern_kitchen_party_scene_in_maximum_-1772364548901.webp');"></div>
+           <div class="image-inner parallax-img" style="background-image: url('${asset('/assets/facilities/07_theater/Output_this_modern_kitchen_party_scene_in_maximum_-1772364548901.webp')}');"></div>
         </div>
         <div class="feature-text">
           <span class="feature-number">03</span>
@@ -302,7 +303,7 @@ export function createHomePage() {
     switchCategory(0);
   }
 
-  fetch('/assets/facilities/manifest.json?t=' + Date.now())
+  fetch(asset('/assets/facilities/manifest.json') + '?t=' + Date.now())
     .then(r => {
       if (!r.ok) throw new Error('Manifest not found');
       const contentType = r.headers.get('content-type') || '';
@@ -332,7 +333,7 @@ export function createHomePage() {
     descEl.style.animation = '';
     descEl.textContent = cat.description;
 
-    currentImages = cat.images.map(f => `/assets/facilities/${f}`);
+    currentImages = cat.images.map(f => asset(`/assets/facilities/${f}`));
 
     const wrapper = galleryContainer.querySelector('#facilities-grid-wrapper');
     wrapper.style.opacity = '0';

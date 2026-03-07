@@ -1,9 +1,11 @@
+import { asset } from '../lib/asset-path.js';
+
 export function createCompanyPage() {
   const container = document.createElement('div');
   container.className = 'page-container fade-in';
 
   container.innerHTML = `
-    <div class="page-hero" style="background-image: url('/assets/t2stay.png'); height: 50vh; background-size: cover; background-position: center; position: relative; display: flex; align-items: center; justify-content: center; color: white; margin-bottom: var(--spacing-xl);">
+    <div class="page-hero" style="background-image: url('${asset('/assets/t2stay.png')}'); height: 50vh; background-size: cover; background-position: center; position: relative; display: flex; align-items: center; justify-content: center; color: white; margin-bottom: var(--spacing-xl);">
       <div class="overlay" style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5);"></div>
       <div class="container text-center" style="position: relative; z-index: 2;">
         <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 1rem;">Company</h1>

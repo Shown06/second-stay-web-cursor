@@ -1,4 +1,5 @@
 import { fetchPosts, fetchPostById } from '../lib/supabase.js';
+import { asset } from '../lib/asset-path.js';
 
 // --- ダミーデータ（Supabase未接続時のフォールバック） ---
 const DUMMY_POSTS = [
@@ -7,7 +8,7 @@ const DUMMY_POSTS = [
         title: '【T2STAY ITAMI】グランドオープンのお知らせ',
         date: '2026-03-01',
         body: '兵庫県伊丹市に佇む一棟貸切のプレミアム宿泊施設「T2STAY ITAMI」が、ついにグランドオープンいたしました。\n\n100インチの大迫力シアターと本格フィンランド式サウナを完全プライベート空間でお楽しみいただける、他に類を見ないリトリート施設です。\n\nオープン記念として、3月末までのご予約で特別料金にてご宿泊いただけます。皆さまのご来訪を心よりお待ちしております。',
-        image_url: '/assets/facilities/07_theater/DSC07966.webp',
+        image_url: asset('/assets/facilities/07_theater/DSC07966.webp'),
         published: true,
     },
     {
@@ -15,7 +16,7 @@ const DUMMY_POSTS = [
         title: 'サウナ設備リニューアルのお知らせ',
         date: '2026-02-15',
         body: 'フィンランド・MISA社製の最新ストーブを導入し、サウナ設備を全面リニューアルいたしました。\n\nより本格的なロウリュ体験と、快適な温度管理を実現。チラー付き水風呂は常時15度にキープされ、最高の「ととのい」をお約束します。\n\nぜひ新しくなったサウナ空間をご体験ください。',
-        image_url: '/assets/facilities/01_sauna/sauna-barrel-night.webp',
+        image_url: asset('/assets/facilities/01_sauna/sauna-barrel-night.webp'),
         published: true,
     },
     {
@@ -23,7 +24,7 @@ const DUMMY_POSTS = [
         title: 'GW特別プランのご案内',
         date: '2026-02-01',
         body: '2026年ゴールデンウィーク期間の特別宿泊プランをご用意いたしました。\n\n大切なご家族やご友人と、非日常のラグジュアリー空間で忘れられない思い出をお作りください。\n\n詳細・ご予約はAirbnbページよりお願いいたします。',
-        image_url: '/assets/facilities/07_theater/Output_this_modern_kitchen_family_scene_in_maximum-1772364569022.webp',
+        image_url: asset('/assets/facilities/07_theater/Output_this_modern_kitchen_family_scene_in_maximum-1772364569022.webp'),
         published: true,
     },
 ];
