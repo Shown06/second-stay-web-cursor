@@ -23,6 +23,24 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+/* App layout: header + main + footer を確実に表示 */
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+
+#app > main {
+    flex: 1 0 auto;
+}
+
+#app > .footer {
+    flex-shrink: 0;
+    display: block;
+    visibility: visible;
+}
+
 /* Glass Utility */
 /* Enhanced Card Hover */
 .glass-panel {
