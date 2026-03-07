@@ -122,6 +122,12 @@ function handleRoute() {
     showHomePage();
   }
 
+  // hash が #top または初回読み込みなら最上部に固定
+  if (hash === '#top' || hash === '') {
+    window.scrollTo(0, 0);
+    return;
+  }
+
   // Scroll to section
   setTimeout(() => {
     const target = document.querySelector(hash);
@@ -143,17 +149,18 @@ function handleRoute() {
 // Event Listeners
 window.addEventListener('hashchange', handleRoute);
 window.addEventListener('load', () => {
-  // Initialize Lenis global smooth scroll
+  window.scrollTo(0, 0);
+
   initGlobalAnimations();
 
-  // Render initial route
   handleRoute();
 
-  // Remove Loading Screen
   const loading = document.getElementById('loading');
   if (loading) {
-    loading.style.opacity = '0';
-    setTimeout(() => loading.remove(), 500);
+    setTimeout(() => {
+      loading.style.opacity = '0';
+      setTimeout(() => loading.remove(), 800);
+    }, 1800);
   }
 
   // Back to Top Button
