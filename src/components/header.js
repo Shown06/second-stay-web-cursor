@@ -4,7 +4,7 @@ export function createHeader() {
 
   header.innerHTML = `
     <div class="container header-container">
-      <a href="/" class="logo">SECOND STAY</a>
+      <a href="#top" class="logo">SECOND STAY</a>
       <button class="menu-toggle" aria-label="Toggle Menu">
         <span class="bar"></span>
         <span class="bar"></span>
