@@ -80,17 +80,19 @@ export function createHomePage() {
     </div>
   `;
 
-  // NEWS: 最新3件を非同期取得
-  (async () => {
-    const DUMMY = [
-      { id: 'dummy-1', title: '【T2STAY ITAMI】グランドオープンのお知らせ', date: '2026-03-01' },
-      { id: 'dummy-2', title: 'サウナ設備リニューアルのお知らせ', date: '2026-02-15' },
-      { id: 'dummy-3', title: 'GW特別プランのご案内', date: '2026-02-01' },
-    ];
+  const DUMMY = [
+    { id: 'dummy-1', title: '【T2STAY ITAMI】グランドオープンのお知らせ', date: '2026-03-01' },
+    { id: 'dummy-2', title: 'サウナ設備リニューアルのお知らせ', date: '2026-02-15' },
+    { id: 'dummy-3', title: 'GW特別プランのご案内', date: '2026-02-01' },
+  ];
+
+  async function renderNewsGrid() {
+    const grid = news.querySelector('#home-news-grid');
+    if (!grid) return;
+    grid.innerHTML = '<div class="blog-loading" style="grid-column: 1 / -1;"><div class="blog-loading-spinner"></div></div>';
     let posts = await fetchPosts(3);
     if (!posts || posts.length === 0) posts = DUMMY;
 
-    const grid = news.querySelector('#home-news-grid');
     grid.innerHTML = '';
     posts.forEach((post, i) => {
       const d = new Date(post.date);
@@ -105,7 +107,13 @@ export function createHomePage() {
       `;
       grid.appendChild(card);
     });
-  })();
+  }
+
+  renderNewsGrid();
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') renderNewsGrid();
+  });
 
   // ----- 2. BUSINESS ----- //
   const business = document.createElement('section');

@@ -9,6 +9,21 @@
     text-align: center;
 }
 
+.blog-hero-back {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    transition: color 0.3s ease;
+}
+
+.blog-hero-back:hover {
+    color: var(--gold-primary);
+}
+
 .blog-hero-content {
     position: relative;
     z-index: 2;
@@ -306,15 +321,21 @@
 }
 
 /* --- NEWS Section on Home (Latest 3 posts) --- */
-.news-art {
+#news.news-art {
     position: relative;
+    padding: 100px 0 80px;
+}
+
+#news.news-art .container-large {
+    max-width: 900px;
+    width: 88%;
 }
 
 .news-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    margin-top: 60px;
+    gap: 24px;
+    margin-top: 36px;
 }
 
 .news-card {
@@ -352,7 +373,7 @@
 
 .news-more-wrap {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
 /* --- RESPONSIVE --- */

@@ -38,6 +38,7 @@ export function createBlogListPage() {
     page.innerHTML = `
     <section class="blog-hero">
       <div class="container-large">
+        <a href="#top" class="blog-hero-back">← 戻る</a>
         <h2 class="display-title center fade-up" style="top: -80px;">NEWS</h2>
         <div class="blog-hero-content fade-up">
           <div class="section-label" style="justify-content: center;">
