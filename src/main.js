@@ -150,17 +150,21 @@ function handleRoute() {
 window.addEventListener('hashchange', handleRoute);
 window.addEventListener('load', () => {
   window.scrollTo(0, 0);
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
   initGlobalAnimations();
-
   handleRoute();
 
   const loading = document.getElementById('loading');
   if (loading) {
     setTimeout(() => {
+      window.scrollTo(0, 0);
       loading.style.opacity = '0';
-      setTimeout(() => loading.remove(), 800);
-    }, 1800);
+      setTimeout(() => {
+        loading.remove();
+        window.scrollTo(0, 0);
+      }, 1000);
+    }, 2000);
   }
 
   // Back to Top Button
