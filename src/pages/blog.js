@@ -39,7 +39,10 @@ export function createBlogListPage() {
     page.innerHTML = `
     <section class="blog-hero">
       <div class="container-large">
-        <a href="#top" class="blog-hero-back">← 戻る</a>
+        <a href="#news" class="blog-hero-back" data-back>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;vertical-align:middle;margin-right:4px;"><polyline points="15 18 9 12 15 6"/></svg>
+          戻る
+        </a>
         <h2 class="display-title center fade-up" style="top: -80px;">NEWS</h2>
         <div class="blog-hero-content fade-up">
           <div class="section-label" style="justify-content: center;">
@@ -63,6 +66,18 @@ export function createBlogListPage() {
       </div>
     </section>
   `;
+
+    const backBtn = page.querySelector('[data-back]');
+    if (backBtn) {
+        backBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.hash = '#news';
+            }
+        });
+    }
 
     loadBlogList(page);
     return page;
