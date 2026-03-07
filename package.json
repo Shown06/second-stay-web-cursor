@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@studio-freight/lenis": "^1.0.42",
+    "@supabase/supabase-js": "^2.98.0",
     "gsap": "^3.13.0"
   }
 }

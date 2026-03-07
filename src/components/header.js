@@ -19,6 +19,7 @@ export function createHeader() {
         <a href="#company" class="nav-link">会社情報</a>
         <a href="#business" class="nav-link">事業紹介</a>
         <a href="#facilities" class="nav-link">施設紹介</a>
+        <a href="#blog" class="nav-link">お知らせ</a>
         <a href="#contact" class="nav-link">お問い合わせ</a>
       </nav>
     </div>

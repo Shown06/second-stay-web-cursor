@@ -5,6 +5,7 @@ import './styles/animations.css';
 import './styles/home.css';
 import './styles/business.css';
 import './styles/facilities.css';
+import './styles/blog.css';
 
 import { createHeader } from './components/header.js';
 import { createFooter } from './components/footer.js';
@@ -12,6 +13,7 @@ import { createHomePage } from './pages/home.js';
 import { createCompanyPage } from './pages/company.js';
 import { createBusinessPage } from './pages/business.js';
 import { createFacilitiesPage } from './pages/facilities.js';
+import { createBlogListPage, createBlogDetailPage } from './pages/blog.js';
 import { createNewsPage, createContactPage } from './pages/others.js';
 import { initTypewriter } from './effects/typewriter.js';
 import { initCursor } from './components/cursor.js';
@@ -31,7 +33,7 @@ app.appendChild(main);
 app.appendChild(footer);
 
 // Single Page Application Logic
-let isInitialized = false;
+let currentView = null; // 'home' | 'blog-list' | 'blog-detail'
 
 function applyHeroLazyBackgrounds() {
   main.querySelectorAll('.hero-slide[data-bg]').forEach((el) => {
@@ -40,63 +42,112 @@ function applyHeroLazyBackgrounds() {
   });
 }
 
-function initApp() {
-  if (!isInitialized) {
-    main.innerHTML = '';
-    main.appendChild(createHomePage());
+let homePage = null; // Cache the home page DOM
 
-    // 表示を先に出し、重い初期化はアイドル時に実行（体感を軽くする）
-    const runAfterIdle = () => {
-      applyHeroLazyBackgrounds();
-      initPageAnimations();
-      initTypewriter();
-      initCursor();
-      initMagneticButtons();
-    };
-    if (typeof requestIdleCallback !== 'undefined') {
-      requestIdleCallback(runAfterIdle, { timeout: 2000 });
-    } else {
-      setTimeout(runAfterIdle, 100);
-    }
+function showHomePage() {
+  if (currentView === 'home') return;
+  main.innerHTML = '';
 
-    main.style.opacity = '1';
-    isInitialized = true;
+  if (!homePage) {
+    homePage = createHomePage();
   }
+  main.appendChild(homePage);
+
+  // 表示を先に出し、重い初期化はアイドル時に実行
+  const runAfterIdle = () => {
+    applyHeroLazyBackgrounds();
+    initPageAnimations();
+    initTypewriter();
+    initCursor();
+    initMagneticButtons();
+  };
+  if (typeof requestIdleCallback !== 'undefined') {
+    requestIdleCallback(runAfterIdle, { timeout: 2000 });
+  } else {
+    setTimeout(runAfterIdle, 100);
+  }
+
+  main.style.opacity = '1';
+  currentView = 'home';
 }
 
-function scrollToSection() {
+function showBlogList() {
+  main.innerHTML = '';
+  main.appendChild(createBlogListPage());
+  main.style.opacity = '1';
+  window.scrollTo({ top: 0 });
+
+  const headerEl = document.querySelector('.header');
+  headerEl.classList.add('solid');
+
+  currentView = 'blog-list';
+}
+
+function showBlogDetail(postId) {
+  main.innerHTML = '';
+  main.appendChild(createBlogDetailPage(postId));
+  main.style.opacity = '1';
+  window.scrollTo({ top: 0 });
+
+  const headerEl = document.querySelector('.header');
+  headerEl.classList.add('solid');
+
+  currentView = 'blog-detail';
+}
+
+function handleRoute() {
   const hash = window.location.hash || '#top';
-  const target = document.querySelector(hash);
+  const headerEl = document.querySelector('.header');
 
-  // Header Visibility Logic Reset
-  const header = document.querySelector('.header');
-  header.classList.remove('solid');
-  header.classList.remove('scrolled');
-
-  if (target) {
-    // Smooth scroll to the target section
-    const headerOffset = 80;
-    const elementPosition = target.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
+  // Blog routing
+  if (hash === '#blog') {
+    showBlogList();
+    return;
   }
+
+  if (hash.startsWith('#blog?')) {
+    const params = new URLSearchParams(hash.replace('#blog?', ''));
+    const postId = params.get('id');
+    if (postId) {
+      showBlogDetail(postId);
+      return;
+    }
+    showBlogList();
+    return;
+  }
+
+  // Home page — show if not already showing
+  if (currentView !== 'home') {
+    headerEl.classList.remove('solid');
+    showHomePage();
+  }
+
+  // Scroll to section
+  setTimeout(() => {
+    const target = document.querySelector(hash);
+    headerEl.classList.remove('solid');
+
+    if (target) {
+      const headerOffset = 80;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, currentView === 'home' ? 100 : 300);
 }
 
 // Event Listeners
-window.addEventListener('hashchange', scrollToSection);
+window.addEventListener('hashchange', handleRoute);
 window.addEventListener('load', () => {
   // Initialize Lenis global smooth scroll
   initGlobalAnimations();
 
-  // Render initial page
-  initApp();
-
-  // Scroll if hash exists
-  setTimeout(scrollToSection, 500);
+  // Render initial route
+  handleRoute();
 
   // Remove Loading Screen
   const loading = document.getElementById('loading');

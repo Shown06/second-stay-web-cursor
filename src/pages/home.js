@@ -1,3 +1,5 @@
+import { fetchPosts } from '../lib/supabase.js';
+
 export function createHomePage() {
   const container = document.createElement('div');
   container.className = 'home-page-container';
@@ -553,9 +555,9 @@ export function createHomePage() {
     const d = document.createElement('div');
     d.className = 'wave-separator';
     const paths = {
-      arc:          'M0,40 C360,80 1080,80 1440,40',
-      arcInverse:   'M0,40 C360,0 1080,0 1440,40',
-      sWave:        'M0,60 C400,0 1040,80 1440,20',
+      arc: 'M0,40 C360,80 1080,80 1440,40',
+      arcInverse: 'M0,40 C360,0 1080,0 1440,40',
+      sWave: 'M0,60 C400,0 1040,80 1440,20',
       sWaveReverse: 'M0,20 C400,80 1040,0 1440,60',
     };
     const p = paths[shape] || paths.arc;
@@ -583,6 +585,58 @@ export function createHomePage() {
   container.appendChild(createWaveSeparator('arc'));
   container.appendChild(company);
   container.appendChild(createWaveSeparator('arc'));
+
+  // ----- NEWS (お知らせ) ----- //
+  const news = document.createElement('section');
+  news.className = 'section news-art';
+  news.id = 'news';
+  news.innerHTML = `
+    <div class="container-large relative">
+      <h2 class="display-title center fade-up-scroll" style="top: -100px;">NEWS</h2>
+      <div class="text-center fade-up-scroll" style="margin-bottom: 40px;">
+        <h3 class="jp-title" style="font-size: 2rem; color: #fff; letter-spacing: 0.1em;">お知らせ</h3>
+        <p style="color: rgba(255,255,255,0.5); margin-top: 20px;">Second Stayの最新情報をお届けします。</p>
+      </div>
+      <div class="news-grid" id="home-news-grid">
+        <div class="blog-loading" style="grid-column: 1 / -1;">
+          <div class="blog-loading-spinner"></div>
+        </div>
+      </div>
+      <div class="news-more-wrap fade-up-scroll">
+        <a href="#blog" class="btn btn-outline hover-magnetic">もっと見る →</a>
+      </div>
+    </div>
+  `;
+  container.appendChild(news);
+
+  // NEWS: 最新3件を非同期取得
+  (async () => {
+    const DUMMY = [
+      { id: 'dummy-1', title: '【T2STAY ITAMI】グランドオープンのお知らせ', date: '2026-03-01' },
+      { id: 'dummy-2', title: 'サウナ設備リニューアルのお知らせ', date: '2026-02-15' },
+      { id: 'dummy-3', title: 'GW特別プランのご案内', date: '2026-02-01' },
+    ];
+    let posts = await fetchPosts(3);
+    if (!posts || posts.length === 0) posts = DUMMY;
+
+    const grid = news.querySelector('#home-news-grid');
+    grid.innerHTML = '';
+    posts.forEach((post, i) => {
+      const d = new Date(post.date);
+      const dateStr = `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+      const card = document.createElement('a');
+      card.href = `#blog?id=${post.id}`;
+      card.className = 'news-card fade-up-scroll';
+      card.style.transitionDelay = `${i * 0.15}s`;
+      card.innerHTML = `
+        <span class="news-card-date">${dateStr}</span>
+        <h4 class="news-card-title">${post.title}</h4>
+      `;
+      grid.appendChild(card);
+    });
+  })();
+
+  container.appendChild(createWaveSeparator('sWaveReverse'));
   container.appendChild(contact);
 
   return container;
