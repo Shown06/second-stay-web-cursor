@@ -35,10 +35,10 @@ export function createHomePage() {
   concept.innerHTML = `
     <div class="concept-wave-top">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,120 L0,60 C360,40 1080,40 1440,60 L1440,120 Z" fill="#0f1219"/>
-        <path d="M0,60 C360,40 1080,40 1440,60" fill="none" stroke="#D4AF37" stroke-opacity="0.03" stroke-width="12"/>
-        <path d="M0,60 C360,40 1080,40 1440,60" fill="none" stroke="#D4AF37" stroke-opacity="0.08" stroke-width="4"/>
-        <path d="M0,60 C360,40 1080,40 1440,60" fill="none" stroke="#D4AF37" stroke-opacity="0.2" stroke-width="1.5"/>
+        <path d="M0,120 L0,60 C360,40 1080,40 1440,60 L1440,120 Z" fill="#162b4b"/>
+        <path d="M0,60 C360,40 1080,40 1440,60" fill="none" stroke="#b08d57" stroke-opacity="0.03" stroke-width="12"/>
+        <path d="M0,60 C360,40 1080,40 1440,60" fill="none" stroke="#b08d57" stroke-opacity="0.08" stroke-width="4"/>
+        <path d="M0,60 C360,40 1080,40 1440,60" fill="none" stroke="#b08d57" stroke-opacity="0.2" stroke-width="1.5"/>
       </svg>
     </div>
     <div class="concept-bg">
@@ -116,42 +116,7 @@ export function createHomePage() {
     if (document.visibilityState === 'visible') renderNewsGrid();
   });
 
-  // ----- 2. BUSINESS ----- //
-  const business = document.createElement('section');
-  business.className = 'section business-art';
-  business.id = 'business';
-  business.innerHTML = `
-    <div class="container-large relative">
-      <h2 class="display-title right fade-up-scroll">BUSINESS</h2>
-      
-      <div class="business-header text-center fade-up-scroll">
-        <h3 class="jp-title mb-md" style="font-size: 2rem; color: var(--gold-primary); letter-spacing: 0.1em;">感動をデザインする3つの領域</h3>
-        <p style="color: rgba(255,255,255,0.6); max-width: 600px; margin: 0 auto; line-height: 2;">空間、体験、地域社会を結びつけ、次世代のラグジュアリーを創造する3つの事業を展開しています。</p>
-      </div>
-
-      <div class="business-cards mt-xl">
-        <div class="business-card fade-up-scroll">
-          <div class="b-number">01</div>
-          <h4>Luxury Accommodation<br><span>高級宿泊施設 企画・運営</span></h4>
-          <p>プライベートヴィラやラグジュアリーホテルの企画・運営。五感を刺激する非日常の滞在体験を創造します。</p>
-        </div>
-        
-        <div class="business-card fade-up-scroll" style="transition-delay: 0.2s;">
-          <div class="b-number">02</div>
-          <h4>Space Produce<br><span>空間プロデュース・設計</span></h4>
-          <p>本格サウナ、シアタールーム、ハイエンド家具のリビングなど、付加価値の高い空間の設計・プロデュースと革新的リノベーション。</p>
-        </div>
-
-        <div class="business-card fade-up-scroll" style="transition-delay: 0.4s;">
-          <div class="b-number">03</div>
-          <h4>Resort Development<br><span>リゾート開発・地方創生</span></h4>
-          <p>土地の歴史・自然・文化を活かしたリゾート開発。地域と共生する持続可能なツーリズムを推進します。</p>
-        </div>
-      </div>
-    </div>
-  `;
-
-  // ----- 3. FACILITIES ----- //
+  // ----- 2. FACILITIES ----- //
   const facilities = document.createElement('section');
   facilities.className = 'section facilities-art';
   facilities.id = 'facilities';
@@ -185,7 +150,7 @@ export function createHomePage() {
     </div>
   `;
 
-  // ----- 3-1. FEATURES (Facilities Detail) ----- //
+  // ----- 2-1. FEATURES (Facilities Detail) ----- //
   const features = document.createElement('section');
   features.className = 'section features-art pb-0';
   features.innerHTML = `
@@ -228,7 +193,7 @@ export function createHomePage() {
     </div>
   `;
 
-  // ----- 3-2. GALLERY ----- //
+  // ----- 2-2. GALLERY ----- //
   const gallerySection = document.createElement('section');
   gallerySection.className = 'section gallery-art';
   gallerySection.id = 'gallery';
@@ -462,67 +427,7 @@ export function createHomePage() {
     </div>
   `;
 
-  // ----- 4. COMPANY ----- //
-  const company = document.createElement('section');
-  company.className = 'section company-art';
-  company.id = 'company';
-  company.innerHTML = `
-    <div class="container-large relative">
-      <h2 class="display-title fade-up-scroll">COMPANY</h2>
-      <div class="company-wrapper mt-xl">
-        <div class="company-message fade-up-scroll">
-          <h3 class="jp-title">あなただけの「第二の居場所」を</h3>
-          <p>「最高の休日とは何か」――私たちはその問いに対し、徹底したプライベート空間と、妥協のない本物の設備でお応えします。</p>
-          <p>Second Stayは、画一的なホテルステイでは決して味わえない「邸宅を貸し切る贅沢」と「ハイエンドな体験（サウナ・シアター）」を約束します。大切な人とともに過ごす特別な時間が、永遠に色褪せない記憶となることを願って。</p>
-          <div class="signature mt-lg text-muted">
-            <p>株式会社セカンドステイ</p>
-            <p style="font-size: 0.85rem; letter-spacing: 0.1em; color: var(--gold-primary); margin-bottom: 5px;">代表取締役</p>
-            <p style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 1.4rem; letter-spacing: 0.3em;">吉田 知博</p>
-            <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; margin-top: 5px;">YOSHIDA TOMOHIRO</p>
-          </div>
-        </div>
-        <div class="company-profile-table fade-up-scroll" style="transition-delay: 0.2s;">
-          <h4 class="table-title">COMPANY PROFILE</h4>
-          <dl class="profile-list">
-            <div class="profile-row">
-              <dt>会社名</dt>
-              <dd>株式会社セカンドステイ<br><span class="en">Second Stay Co., Ltd.</span></dd>
-            </div>
-            <div class="profile-row">
-              <dt>所在地</dt>
-              <dd>〒664-0845<br>兵庫県伊丹市東有岡3丁目141</dd>
-            </div>
-            <div class="profile-row">
-              <dt>設立</dt>
-              <dd>2023年</dd>
-            </div>
-            <div class="profile-row">
-              <dt>事業内容</dt>
-              <dd>
-                1. 宿泊施設（T2STAY等）の企画・運営<br>
-                2. 空間プロデュース・リノベーション事業<br>
-                3. リゾート開発・不動産事業
-              </dd>
-            </div>
-            <div class="profile-row">
-              <dt>主要取引銀行</dt>
-              <dd>三井住友銀行 / PayPay銀行</dd>
-            </div>
-            <div class="profile-row">
-              <dt>連絡先</dt>
-              <dd>
-                TEL/FAX: 072-767-6503<br>
-                Mobile: 090-1672-4413<br>
-                E-mail: <a href="mailto:second.stay02@gmail.com" style="color: var(--gold-primary);">second.stay02@gmail.com</a>
-              </dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-    </div>
-  `;
-
-  // ----- 5. CONTACT ----- //
+  // ----- 3. CONTACT ----- //
   const contact = document.createElement('section');
   contact.className = 'section contact-art';
   contact.id = 'contact';
@@ -533,7 +438,7 @@ export function createHomePage() {
         <div class="contact-info fade-up-scroll">
           <h3 class="jp-title mb-md" style="font-size: 2rem; color: #fff; letter-spacing: 0.1em;">お問い合わせ</h3>
           <p style="color: rgba(255,255,255,0.6); line-height: 2; margin-bottom: 40px;">
-            ご予約に関するご質問、法人利用のご相談、空間プロデュースのご依頼など、どうぞお気軽にお問い合わせください。専任のスタッフが丁寧にご案内いたします。
+            ご予約や宿泊前のご相談、滞在中のご不明点など、どうぞお気軽にお問い合わせください。専任スタッフが丁寧にご案内します。
           </p>
           <div class="contact-details">
             <div class="c-item">
@@ -560,8 +465,8 @@ export function createHomePage() {
                 <input type="text" name="name" required class="input-premium">
               </div>
               <div class="form-field">
-                <label>会社名 <span>COMPANY</span></label>
-                <input type="text" name="company" class="input-premium">
+                <label>ご利用人数（予定） <span>GUESTS</span></label>
+                <input type="text" name="guests" class="input-premium" placeholder="例）大人4名">
               </div>
             </div>
             <div class="form-group">
@@ -572,8 +477,8 @@ export function createHomePage() {
               <label>お問い合わせ種別 <span>SUBJECT</span></label>
               <select name="subject" class="input-premium select-premium">
                 <option value="ご宿泊予約について">ご宿泊・予約について</option>
-                <option value="空間プロデュースについて">空間プロデュース・設計について</option>
-                <option value="法人利用・取材について">法人利用・取材について</option>
+                <option value="施設・設備について">施設・設備について</option>
+                <option value="アクセス・チェックインについて">アクセス・チェックインについて</option>
                 <option value="その他のお問い合わせ">その他のお問い合わせ</option>
               </select>
             </div>
@@ -597,7 +502,7 @@ export function createHomePage() {
       const subject = '【Second Stay】お問い合わせ - ' + (form.subject?.value || '');
       const body = [
         'お名前: ' + (form.name?.value || ''),
-        '会社名: ' + (form.company?.value || ''),
+        'ご利用人数（予定）: ' + (form.guests?.value || ''),
         'メールアドレス: ' + (form.email?.value || ''),
         'お問い合わせ種別: ' + (form.subject?.value || ''),
         '',
@@ -620,9 +525,9 @@ export function createHomePage() {
     };
     const p = paths[shape] || paths.arc;
     d.innerHTML = `<svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="${p}" fill="none" stroke="#D4AF37" stroke-opacity="0.03" stroke-width="12"/>
-      <path d="${p}" fill="none" stroke="#D4AF37" stroke-opacity="0.08" stroke-width="4"/>
-      <path d="${p}" fill="none" stroke="#D4AF37" stroke-opacity="0.2" stroke-width="1.5"/>
+      <path d="${p}" fill="none" stroke="#b08d57" stroke-opacity="0.03" stroke-width="12"/>
+      <path d="${p}" fill="none" stroke="#b08d57" stroke-opacity="0.08" stroke-width="4"/>
+      <path d="${p}" fill="none" stroke="#b08d57" stroke-opacity="0.2" stroke-width="1.5"/>
     </svg>`;
     return d;
   }
@@ -632,8 +537,6 @@ export function createHomePage() {
   container.appendChild(concept);
   container.appendChild(createWaveSeparator('sWave'));
   container.appendChild(news);
-  container.appendChild(createWaveSeparator('sWaveReverse'));
-  container.appendChild(business);
   container.appendChild(createWaveSeparator('arcInverse'));
   container.appendChild(facilities);
   container.appendChild(features);
@@ -642,8 +545,6 @@ export function createHomePage() {
   container.appendChild(lightbox);
   container.appendChild(createWaveSeparator('sWaveReverse'));
   container.appendChild(reviews);
-  container.appendChild(createWaveSeparator('arc'));
-  container.appendChild(company);
   container.appendChild(createWaveSeparator('arc'));
   container.appendChild(contact);
 
