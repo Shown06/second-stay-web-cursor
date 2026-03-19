@@ -45,6 +45,12 @@ function applyHeroLazyBackgrounds() {
 let homePage = null; // Cache the home page DOM
 let companyPage = null; // Cache the company page DOM
 
+function revealPageEntry() {
+  main.querySelectorAll('.fade-in').forEach((el) => {
+    el.classList.add('visible');
+  });
+}
+
 function showHomePage() {
   if (currentView === 'home') return;
   main.innerHTML = '';
@@ -75,6 +81,7 @@ function showHomePage() {
 function showBlogList() {
   main.innerHTML = '';
   main.appendChild(createBlogListPage());
+  revealPageEntry();
   main.style.opacity = '1';
   window.scrollTo({ top: 0 });
 
@@ -87,6 +94,7 @@ function showBlogList() {
 function showBlogDetail(postId) {
   main.innerHTML = '';
   main.appendChild(createBlogDetailPage(postId));
+  revealPageEntry();
   main.style.opacity = '1';
   window.scrollTo({ top: 0 });
 
@@ -102,6 +110,7 @@ function showCompanyPage() {
     companyPage = createCompanyPage();
   }
   main.appendChild(companyPage);
+  revealPageEntry();
   main.style.opacity = '1';
   window.scrollTo({ top: 0 });
 
