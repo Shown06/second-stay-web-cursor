@@ -2,25 +2,61 @@ import { asset } from '../lib/asset-path.js';
 
 export function createCompanyPage() {
   const container = document.createElement('div');
-  container.className = 'page-container fade-in';
+  container.className = 'page-container company-page fade-in';
 
   container.innerHTML = `
-    <div class="page-hero" style="background-image: url('${asset('/assets/t2stay.png')}'); height: 44vh; background-size: cover; background-position: center; position: relative; display: flex; align-items: center; justify-content: center; color: #f5f4f0; margin-bottom: var(--spacing-xl);">
-      <div class="overlay" style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(180deg, rgba(18, 34, 61, 0.78), rgba(18, 34, 61, 0.5));"></div>
-      <div class="container text-center" style="position: relative; z-index: 2;">
-        <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 1rem;">Company</h1>
-        <p class="hero-subtitle" style="font-size: 1.1rem; font-weight: 300;">セカンドステイ 企業サイト</p>
-      </div>
-    </div>
-
-    <section class="section">
-      <div class="container">
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; margin-bottom:28px;">
-          <h2 style="margin:0; color:#12223d; letter-spacing:0.08em;">会社概要</h2>
-          <a href="#top" class="btn btn-outline" style="text-decoration:none;">宿泊LPへ戻る</a>
+    <section class="company-hero" style="background-image: url('${asset('/assets/t2stay.png')}');">
+      <div class="company-hero-overlay"></div>
+      <div class="container company-hero-inner">
+        <div class="company-hero-copy">
+          <span class="company-eyebrow">CORPORATE SITE</span>
+          <h1 class="company-hero-title">宿泊体験から、<br>地域の価値を育てる。</h1>
+          <p class="company-hero-lead">株式会社セカンドステイは、一棟貸し宿泊施設の企画運営を軸に、空間プロデュース、リゾート開発、地方創生までを一貫して手がける会社です。</p>
+          <div class="company-hero-actions">
+            <a href="#top" class="btn btn-outline company-hero-button">宿泊LPへ戻る</a>
+            <a href="#contact" class="btn btn-primary company-hero-button">お問い合わせへ</a>
+          </div>
         </div>
 
-        <div class="company-info-card hover-lift glass-panel p-lg mb-xl" style="background:#fff; border:1px solid rgba(18,34,61,0.1);">
+        <div class="company-hero-panel glass-panel">
+          <p class="company-panel-label">OUR SCOPE</p>
+          <div class="company-hero-metrics">
+            <div class="company-metric">
+              <span class="company-metric-value">01</span>
+              <span class="company-metric-label">高級宿泊施設</span>
+            </div>
+            <div class="company-metric">
+              <span class="company-metric-value">02</span>
+              <span class="company-metric-label">空間プロデュース</span>
+            </div>
+            <div class="company-metric">
+              <span class="company-metric-value">03</span>
+              <span class="company-metric-label">地方創生・開発</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section company-intro-section">
+      <div class="container company-intro-grid">
+        <div class="company-intro-copy">
+          <span class="company-section-kicker">ABOUT US</span>
+          <h2 class="company-section-title">滞在の先にある、<br>体験価値まで設計する。</h2>
+          <p class="company-intro-text">セカンドステイが目指しているのは、単なる宿泊施設の運営ではありません。施設に訪れる瞬間から、滞在中の導線、空間の質感、過ごした後の記憶までを含めた「体験の設計」を大切にしています。</p>
+          <p class="company-intro-text">宿泊事業で培った知見を、空間づくりや地域連携にも広げることで、長く愛される場所と事業を育てていきます。</p>
+          <div class="company-tag-row">
+            <span class="company-tag">Hospitality</span>
+            <span class="company-tag">Spatial Design</span>
+            <span class="company-tag">Regional Development</span>
+          </div>
+        </div>
+
+        <div class="company-profile-card glass-panel">
+          <div class="company-profile-card-head">
+            <span class="company-section-kicker">COMPANY PROFILE</span>
+            <h3>会社概要</h3>
+          </div>
           <dl class="company-list">
             <div class="company-item">
               <dt>会社名</dt>
@@ -48,32 +84,63 @@ export function createCompanyPage() {
             </div>
           </dl>
         </div>
+      </div>
+    </section>
 
-        <div class="mission-section section" style="padding-top:0;">
-          <h3 class="text-center mb-md" style="color:#12223d;">事業領域</h3>
-          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:20px;">
-            <article class="mission-card glass-panel p-md" style="background:#fff; border:1px solid rgba(18,34,61,0.1);">
-              <h4 class="mb-sm" style="color:#12223d;">高級宿泊施設</h4>
-              <p style="margin:0; color:#30405f;">一棟貸し宿泊施設の企画・運営を通じ、滞在価値を最大化する空間づくりを行っています。</p>
-            </article>
-            <article class="mission-card glass-panel p-md" style="background:#fff; border:1px solid rgba(18,34,61,0.1);">
-              <h4 class="mb-sm" style="color:#12223d;">空間プロデュース</h4>
-              <p style="margin:0; color:#30405f;">サウナ・シアター・リビングなど、体験価値を高める空間設計とリノベーションを提供します。</p>
-            </article>
-            <article class="mission-card glass-panel p-md" style="background:#fff; border:1px solid rgba(18,34,61,0.1);">
-              <h4 class="mb-sm" style="color:#12223d;">リゾート開発</h4>
-              <p style="margin:0; color:#30405f;">地域資源を活かした滞在開発を通じて、持続可能な観光とエリア価値向上に取り組みます。</p>
-            </article>
-            <article class="mission-card glass-panel p-md" style="background:#fff; border:1px solid rgba(18,34,61,0.1);">
-              <h4 class="mb-sm" style="color:#12223d;">地方創生</h4>
-              <p style="margin:0; color:#30405f;">宿泊体験を軸に、地域事業者との連携・雇用・交流を生み出すプロジェクトを推進します。</p>
-            </article>
+    <section class="section company-services-section">
+      <div class="container">
+        <div class="company-section-head text-center">
+          <span class="company-section-kicker">BUSINESS DOMAIN</span>
+          <h2 class="company-section-title">事業領域</h2>
+          <p class="company-section-lead">宿泊運営の現場感覚を起点に、空間づくりと地域価値向上まで一貫して取り組んでいます。</p>
+        </div>
+
+        <div class="company-service-grid">
+          <article class="company-service-card glass-panel">
+            <span class="company-service-number">01</span>
+            <h3>高級宿泊施設</h3>
+            <p>一棟貸し宿泊施設の企画・運営を通じて、滞在価値そのものを高める宿泊体験を提供します。</p>
+          </article>
+          <article class="company-service-card glass-panel">
+            <span class="company-service-number">02</span>
+            <h3>空間プロデュース</h3>
+            <p>サウナ、シアター、リビングなど、過ごし方まで設計した空間リノベーションを行います。</p>
+          </article>
+          <article class="company-service-card glass-panel">
+            <span class="company-service-number">03</span>
+            <h3>リゾート開発</h3>
+            <p>地域資源や土地の魅力を活かし、持続的な滞在価値につながる開発に取り組みます。</p>
+          </article>
+          <article class="company-service-card glass-panel">
+            <span class="company-service-number">04</span>
+            <h3>地方創生</h3>
+            <p>宿泊を起点に、地域の人・文化・経済が循環する仕組みづくりを目指します。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section company-philosophy-section">
+      <div class="container company-philosophy-grid">
+        <div class="company-philosophy-main">
+          <span class="company-section-kicker">PHILOSOPHY</span>
+          <h2 class="company-section-title">企業理念</h2>
+          <p class="company-philosophy-quote">「滞在価値を再定義し、人と地域に新しい豊かさを届ける」</p>
+          <p class="company-intro-text">私たちは宿泊を起点に、空間・体験・地域をつなぐ事業を展開し、長く愛される価値の創出を目指します。</p>
+        </div>
+
+        <div class="company-values-card glass-panel">
+          <div class="company-value-item">
+            <h3>Quality</h3>
+            <p>細部まで品質を整え、体験全体の完成度を高めます。</p>
           </div>
-
-          <div class="mission-card glass-panel p-lg mt-xl" style="background:#f5f4f0; border:1px solid rgba(18,34,61,0.1);">
-            <h4 class="mb-sm" style="color:#12223d;">企業理念</h4>
-            <p style="margin-bottom:10px; color:#30405f;">「滞在価値を再定義し、人と地域に新しい豊かさを届ける」</p>
-            <p style="margin:0; color:#30405f;">私たちは宿泊を起点に、空間・体験・地域をつなぐ事業を展開し、長く愛される価値の創出を目指します。</p>
+          <div class="company-value-item">
+            <h3>Design</h3>
+            <p>空間だけでなく、過ごし方と記憶までを設計します。</p>
+          </div>
+          <div class="company-value-item">
+            <h3>Locality</h3>
+            <p>地域と共に価値を育て、持続可能な事業をつくります。</p>
           </div>
         </div>
       </div>
