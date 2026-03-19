@@ -33,7 +33,7 @@ app.appendChild(main);
 app.appendChild(footer);
 
 // Single Page Application Logic
-let currentView = null; // 'home' | 'blog-list' | 'blog-detail'
+let currentView = null; // 'home' | 'blog-list' | 'blog-detail' | 'company-page'
 
 function applyHeroLazyBackgrounds() {
   main.querySelectorAll('.hero-slide[data-bg]').forEach((el) => {
@@ -43,6 +43,13 @@ function applyHeroLazyBackgrounds() {
 }
 
 let homePage = null; // Cache the home page DOM
+let companyPage = null; // Cache the company page DOM
+
+function revealPageEntry() {
+  main.querySelectorAll('.fade-in').forEach((el) => {
+    el.classList.add('visible');
+  });
+}
 
 function showHomePage() {
   if (currentView === 'home') return;
@@ -74,6 +81,7 @@ function showHomePage() {
 function showBlogList() {
   main.innerHTML = '';
   main.appendChild(createBlogListPage());
+  revealPageEntry();
   main.style.opacity = '1';
   window.scrollTo({ top: 0 });
 
@@ -86,6 +94,7 @@ function showBlogList() {
 function showBlogDetail(postId) {
   main.innerHTML = '';
   main.appendChild(createBlogDetailPage(postId));
+  revealPageEntry();
   main.style.opacity = '1';
   window.scrollTo({ top: 0 });
 
@@ -93,6 +102,22 @@ function showBlogDetail(postId) {
   headerEl.classList.add('solid');
 
   currentView = 'blog-detail';
+}
+
+function showCompanyPage() {
+  main.innerHTML = '';
+  if (!companyPage) {
+    companyPage = createCompanyPage();
+  }
+  main.appendChild(companyPage);
+  revealPageEntry();
+  main.style.opacity = '1';
+  window.scrollTo({ top: 0 });
+
+  const headerEl = document.querySelector('.header');
+  headerEl.classList.add('solid');
+
+  currentView = 'company-page';
 }
 
 function handleRoute() {
@@ -116,6 +141,11 @@ function handleRoute() {
     return;
   }
 
+  if (hash === '#company-page') {
+    showCompanyPage();
+    return;
+  }
+
   // Home page — show if not already showing
   if (currentView !== 'home') {
     headerEl.classList.remove('solid');
@@ -128,7 +158,7 @@ function handleRoute() {
     return;
   }
 
-  // Scroll to section
+  // Scroll to section (home page only)
   setTimeout(() => {
     const target = document.querySelector(hash);
     headerEl.classList.remove('solid');

@@ -10,7 +10,7 @@ export function createFooter() {
           <!-- Brand Column -->
           <div class="footer-col footer-brand">
             <a href="#top" class="footer-logo">SECOND STAY</a>
-            <p class="footer-tagline">兵庫県で価値ある空間と<br class="sp-only">記憶に残る体験を創造します。</p>
+            <p class="footer-tagline">兵庫県伊丹で、<br class="sp-only">上質な一棟貸しステイ体験を提供します。</p>
             <div class="footer-sns">
               <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="sns-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
@@ -27,11 +27,10 @@ export function createFooter() {
             <ul class="footer-links">
               <li><a href="#top">トップ</a></li>
               <li><a href="#concept">コンセプト</a></li>
-              <li><a href="#business">事業紹介</a></li>
               <li><a href="#facilities">施設紹介</a></li>
               <li><a href="#gallery">ギャラリー</a></li>
               <li><a href="#reviews">お客さまの声</a></li>
-              <li><a href="#company">会社情報</a></li>
+              <li><a href="#company-page">会社情報</a></li>
             </ul>
           </div>
 
@@ -40,9 +39,9 @@ export function createFooter() {
             <h4 class="footer-heading">サービス</h4>
             <ul class="footer-links">
               <li><a href="https://www.airbnb.jp/rooms/1468587267648945252" target="_blank" rel="noopener noreferrer">宿泊予約（Airbnb）<span class="external-icon">↗</span></a></li>
-              <li><a href="#contact">空間プロデュース</a></li>
-              <li><a href="#contact">法人利用のご相談</a></li>
-              <li><a href="#contact">お問い合わせ</a></li>
+              <li><a href="#facilities">施設詳細を見る</a></li>
+              <li><a href="#contact">ご宿泊に関するお問い合わせ</a></li>
+              <li><a href="#company-page">会社サイトへ</a></li>
             </ul>
           </div>
 

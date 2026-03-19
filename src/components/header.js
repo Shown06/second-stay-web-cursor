@@ -16,11 +16,12 @@ export function createHeader() {
           <span class="line"></span>
         </button>
         <a href="#top" class="nav-link">トップ</a>
-        <a href="#company" class="nav-link">会社情報</a>
-        <a href="#business" class="nav-link">事業紹介</a>
+        <a href="#concept" class="nav-link">コンセプト</a>
         <a href="#facilities" class="nav-link">施設紹介</a>
+        <a href="#reviews" class="nav-link">お客さまの声</a>
         <a href="#blog" class="nav-link">お知らせ</a>
         <a href="#contact" class="nav-link">お問い合わせ</a>
+        <a href="#company-page" class="nav-link">会社情報</a>
       </nav>
     </div>
   `;

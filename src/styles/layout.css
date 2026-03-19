@@ -685,3 +685,381 @@
 .page-container {
     min-height: 100vh;
 }
+
+.company-page {
+    background:
+        radial-gradient(circle at top left, rgba(176, 141, 87, 0.10), transparent 30%),
+        linear-gradient(180deg, #f8f6f1 0%, #ffffff 32%, #f5f4f0 100%);
+}
+
+.company-hero {
+    position: relative;
+    min-height: 76vh;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.company-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(115deg, rgba(18, 34, 61, 0.90) 0%, rgba(18, 34, 61, 0.72) 44%, rgba(18, 34, 61, 0.38) 100%),
+        linear-gradient(180deg, rgba(10, 16, 28, 0.12) 0%, rgba(10, 16, 28, 0.35) 100%);
+}
+
+.company-hero-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(320px, 420px);
+    gap: 48px;
+    align-items: end;
+    padding-top: 140px;
+    padding-bottom: 80px;
+}
+
+.company-hero-copy {
+    color: #f5f4f0;
+    max-width: 760px;
+}
+
+.company-eyebrow,
+.company-section-kicker,
+.company-panel-label {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+}
+
+.company-hero-title {
+    font-size: clamp(2.7rem, 6vw, 5rem);
+    line-height: 1.14;
+    letter-spacing: 0.05em;
+    margin: 18px 0 22px;
+}
+
+.company-hero-lead {
+    font-size: 1.02rem;
+    line-height: 2;
+    color: rgba(245, 244, 240, 0.82);
+    max-width: 640px;
+}
+
+.company-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 34px;
+}
+
+.company-hero-button {
+    min-width: 180px;
+    text-align: center;
+    padding: 14px 22px;
+}
+
+.company-hero-panel {
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #f5f4f0;
+    padding: 28px;
+    border-radius: 24px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+}
+
+.company-hero-metrics {
+    display: grid;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.company-metric {
+    display: grid;
+    grid-template-columns: 58px 1fr;
+    gap: 14px;
+    align-items: center;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.company-metric:first-child {
+    padding-top: 0;
+    border-top: none;
+}
+
+.company-metric-value {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: #f5f4f0;
+    line-height: 1;
+}
+
+.company-metric-label {
+    color: rgba(245, 244, 240, 0.86);
+    line-height: 1.6;
+}
+
+.company-intro-section {
+    padding-top: 110px;
+}
+
+.company-intro-grid,
+.company-philosophy-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    gap: 36px;
+    align-items: start;
+}
+
+.company-section-title {
+    font-size: clamp(2rem, 3.6vw, 3.2rem);
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+    color: #12223d;
+    margin-top: 12px;
+    margin-bottom: 18px;
+}
+
+.company-section-head {
+    max-width: 760px;
+    margin: 0 auto 46px;
+}
+
+.company-section-lead,
+.company-intro-text {
+    font-size: 0.98rem;
+    line-height: 2;
+    color: #30405f;
+}
+
+.company-tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+}
+
+.company-tag {
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(18, 34, 61, 0.14);
+    background: rgba(255, 255, 255, 0.72);
+    color: #12223d;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+}
+
+.company-profile-card,
+.company-service-card,
+.company-values-card {
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(18, 34, 61, 0.08);
+    box-shadow: 0 24px 60px rgba(18, 34, 61, 0.08);
+}
+
+.company-profile-card {
+    padding: 34px;
+    border-radius: 24px;
+}
+
+.company-profile-card-head {
+    margin-bottom: 18px;
+}
+
+.company-profile-card-head h3 {
+    font-size: 1.7rem;
+    color: #12223d;
+    margin: 12px 0 0;
+}
+
+.company-page .company-list {
+    margin: 0;
+    display: grid;
+    gap: 0;
+}
+
+.company-page .company-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(18, 34, 61, 0.08);
+}
+
+.company-page .company-item:last-child {
+    border-bottom: none;
+}
+
+.company-page .company-item dt {
+    margin: 0;
+    color: #12223d;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+}
+
+.company-page .company-item dd {
+    margin: 0;
+    color: #30405f;
+    line-height: 1.9;
+}
+
+.company-services-section {
+    padding-top: 20px;
+}
+
+.company-service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.company-service-card {
+    position: relative;
+    padding: 30px 28px 28px;
+    border-radius: 24px;
+}
+
+.company-service-number {
+    display: inline-block;
+    margin-bottom: 18px;
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    line-height: 1;
+    color: var(--color-accent);
+}
+
+.company-service-card h3 {
+    font-size: 1.32rem;
+    color: #12223d;
+    margin-bottom: 14px;
+}
+
+.company-service-card p {
+    color: #30405f;
+    line-height: 1.9;
+}
+
+.company-philosophy-section {
+    padding-top: 24px;
+}
+
+.company-philosophy-main {
+    padding-right: 20px;
+}
+
+.company-philosophy-quote {
+    font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+    line-height: 1.6;
+    color: #12223d;
+    margin-bottom: 20px;
+}
+
+.company-values-card {
+    padding: 34px;
+    border-radius: 24px;
+    display: grid;
+    gap: 22px;
+}
+
+.company-value-item + .company-value-item {
+    padding-top: 22px;
+    border-top: 1px solid rgba(18, 34, 61, 0.08);
+}
+
+.company-value-item h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin-bottom: 8px;
+}
+
+.company-value-item p {
+    color: #30405f;
+    line-height: 1.9;
+}
+
+@media (max-width: 1024px) {
+    .company-hero-inner,
+    .company-intro-grid,
+    .company-philosophy-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .company-hero {
+        min-height: auto;
+    }
+
+    .company-hero-inner {
+        align-items: start;
+    }
+
+    .company-service-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .company-intro-section {
+        padding-top: 70px;
+    }
+
+    .company-hero-inner {
+        padding-top: 120px;
+        padding-bottom: 56px;
+        gap: 28px;
+    }
+
+    .company-hero-title {
+        font-size: 2.35rem;
+    }
+
+    .company-hero-lead,
+    .company-section-lead,
+    .company-intro-text,
+    .company-service-card p,
+    .company-value-item p,
+    .company-page .company-item dd {
+        font-size: 0.94rem;
+        line-height: 1.9;
+    }
+
+    .company-profile-card,
+    .company-service-card,
+    .company-values-card,
+    .company-hero-panel {
+        padding: 24px;
+    }
+
+    .company-page .company-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .company-service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .company-philosophy-main {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .company-hero-title {
+        font-size: 2rem;
+    }
+
+    .company-hero-actions {
+        flex-direction: column;
+    }
+
+    .company-hero-button {
+        width: 100%;
+    }
+}
