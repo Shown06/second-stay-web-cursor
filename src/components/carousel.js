@@ -1,17 +1,21 @@
 export function createCarousel(images) {
-    const container = document.createElement('div');
-    container.className = 'carousel-container fade-in';
+  const container = document.createElement('div');
+  container.className = 'carousel-container fade-in';
 
-    const slidesHtml = images.map((img, index) => `
+  const slidesHtml = images
+    .map(
+      (img, index) => `
     <div class="carousel-slide ${index === 0 ? 'active' : ''}" style="background-image: url('${img.url}');">
       <div class="carousel-caption">
         <h3>${img.title}</h3>
         <p>${img.desc}</p>
       </div>
     </div>
-  `).join('');
+  `,
+    )
+    .join('');
 
-    container.innerHTML = `
+  container.innerHTML = `
     <div class="carousel-track">
       ${slidesHtml}
     </div>
@@ -22,28 +26,28 @@ export function createCarousel(images) {
     </div>
   `;
 
-    // Logic
-    let current = 0;
-    const slides = container.querySelectorAll('.carousel-slide');
-    const indicators = container.querySelectorAll('.indicator');
+  // Logic
+  let current = 0;
+  const slides = container.querySelectorAll('.carousel-slide');
+  const indicators = container.querySelectorAll('.indicator');
 
-    function showSlide(index) {
-        slides[current].classList.remove('active');
-        indicators[current].classList.remove('active');
-        current = (index + slides.length) % slides.length;
-        slides[current].classList.add('active');
-        indicators[current].classList.add('active');
-    }
+  function showSlide(index) {
+    slides[current].classList.remove('active');
+    indicators[current].classList.remove('active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    indicators[current].classList.add('active');
+  }
 
-    container.querySelector('.next').addEventListener('click', () => showSlide(current + 1));
-    container.querySelector('.prev').addEventListener('click', () => showSlide(current - 1));
+  container.querySelector('.next').addEventListener('click', () => showSlide(current + 1));
+  container.querySelector('.prev').addEventListener('click', () => showSlide(current - 1));
 
-    indicators.forEach(ind => {
-        ind.addEventListener('click', (e) => showSlide(parseInt(e.target.dataset.index)));
-    });
+  indicators.forEach((ind) => {
+    ind.addEventListener('click', (e) => showSlide(Number.parseInt(e.target.dataset.index)));
+  });
 
-    // Auto play
-    setInterval(() => showSlide(current + 1), 5000);
+  // Auto play
+  setInterval(() => showSlide(current + 1), 5000);
 
-    return container;
+  return container;
 }

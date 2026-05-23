@@ -1,45 +1,17 @@
-import { fetchPosts, fetchPostById } from '../lib/supabase.js';
-import { asset } from '../lib/asset-path.js';
-
-// --- ダミーデータ（Supabase未接続時のフォールバック） ---
-const DUMMY_POSTS = [
-    {
-        id: 'dummy-1',
-        title: '【T2STAY ITAMI】グランドオープンのお知らせ',
-        date: '2026-03-01',
-        body: '兵庫県伊丹市に佇む一棟貸切のプレミアム宿泊施設「T2STAY ITAMI」が、ついにグランドオープンいたしました。\n\n100インチの大迫力シアターと本格フィンランド式サウナを完全プライベート空間でお楽しみいただける、他に類を見ないリトリート施設です。\n\nオープン記念として、3月末までのご予約で特別料金にてご宿泊いただけます。皆さまのご来訪を心よりお待ちしております。',
-        image_url: asset('/assets/facilities/07_theater/DSC07966.webp'),
-        published: true,
-    },
-    {
-        id: 'dummy-2',
-        title: 'サウナ設備リニューアルのお知らせ',
-        date: '2026-02-15',
-        body: 'フィンランド・MISA社製の最新ストーブを導入し、サウナ設備を全面リニューアルいたしました。\n\nより本格的なロウリュ体験と、快適な温度管理を実現。チラー付き水風呂は常時15度にキープされ、最高の「ととのい」をお約束します。\n\nぜひ新しくなったサウナ空間をご体験ください。',
-        image_url: asset('/assets/facilities/01_sauna/sauna-barrel-night.webp'),
-        published: true,
-    },
-    {
-        id: 'dummy-3',
-        title: 'GW特別プランのご案内',
-        date: '2026-02-01',
-        body: '2026年ゴールデンウィーク期間の特別宿泊プランをご用意いたしました。\n\n大切なご家族やご友人と、非日常のラグジュアリー空間で忘れられない思い出をお作りください。\n\n詳細・ご予約はAirbnbページよりお願いいたします。',
-        image_url: asset('/assets/facilities/07_theater/Output_this_modern_kitchen_family_scene_in_maximum-1772364569022.webp'),
-        published: true,
-    },
-];
+import { fetchPostById, fetchPosts } from '../lib/cms.js';
+import { paths } from '../lib/paths.js';
 
 /**
  * ブログ一覧ページを生成
  */
 export function createBlogListPage() {
-    const page = document.createElement('div');
-    page.className = 'blog-page home-page-container';
+  const page = document.createElement('div');
+  page.className = 'blog-page page-container';
 
-    page.innerHTML = `
+  page.innerHTML = `
     <section class="blog-hero">
       <div class="container-large">
-        <a href="#news" class="blog-hero-back" data-back>
+        <a href="${paths.homeSection('news')}" class="blog-hero-back" data-back>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;vertical-align:middle;margin-right:4px;"><polyline points="15 18 9 12 15 6"/></svg>
           戻る
         </a>
@@ -67,44 +39,49 @@ export function createBlogListPage() {
     </section>
   `;
 
-    const backBtn = page.querySelector('[data-back]');
-    if (backBtn) {
-        backBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (window.history.length > 1) {
-                window.history.back();
-            } else {
-                window.location.hash = '#news';
-            }
-        });
-    }
+  const backBtn = page.querySelector('[data-back]');
+  if (backBtn) {
+    backBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = paths.homeSection('news');
+      }
+    });
+  }
 
-    loadBlogList(page);
-    return page;
+  loadBlogList(page);
+  return page;
 }
 
 async function loadBlogList(page) {
-    const grid = page.querySelector('#blog-grid');
-    let posts = await fetchPosts();
-    if (!posts || posts.length === 0) posts = DUMMY_POSTS;
+  const grid = page.querySelector('#blog-grid');
+  const posts = await fetchPosts();
 
-    grid.innerHTML = '';
+  grid.innerHTML = '';
 
-    posts.forEach((post, i) => {
-        const card = document.createElement('article');
-        card.className = 'blog-card fade-up';
-        card.style.animationDelay = `${i * 0.1}s`;
+  if (!posts || posts.length === 0) {
+    grid.innerHTML = '<div class="blog-empty"><p>現在お知らせはありません。</p></div>';
+    return;
+  }
 
-        const dateStr = formatDate(post.date);
-        const excerpt = (post.body || '').replace(/\n/g, ' ').substring(0, 100) + '…';
+  posts.forEach((post, i) => {
+    const card = document.createElement('article');
+    card.className = 'blog-card fade-up';
+    card.style.animationDelay = `${i * 0.1}s`;
 
-        card.innerHTML = `
-      <a href="#blog?id=${post.id}" class="blog-card-link">
+    const dateStr = formatDate(post.date);
+    const excerpt = `${(post.body || '').replace(/\n/g, ' ').substring(0, 100)}…`;
+
+    card.innerHTML = `
+      <a href="${paths.blogPost(post.id)}" class="blog-card-link">
         <div class="blog-card-image">
-          ${post.image_url
-                ? `<img src="${post.image_url}" alt="${post.title}" loading="lazy">`
-                : `<div class="blog-card-noimage"><span>NO IMAGE</span></div>`
-            }
+          ${
+            post.image_url
+              ? `<img src="${post.image_url}" alt="${post.title}" loading="lazy">`
+              : `<div class="blog-card-noimage"><span>NO IMAGE</span></div>`
+          }
         </div>
         <div class="blog-card-body">
           <time class="blog-card-date" datetime="${post.date}">${dateStr}</time>
@@ -115,22 +92,22 @@ async function loadBlogList(page) {
       </a>
     `;
 
-        grid.appendChild(card);
-        // Trigger animation
-        requestAnimationFrame(() => {
-            setTimeout(() => card.classList.add('visible'), 60 + i * 80);
-        });
+    grid.appendChild(card);
+    // Trigger animation
+    requestAnimationFrame(() => {
+      setTimeout(() => card.classList.add('visible'), 60 + i * 80);
     });
+  });
 }
 
 /**
  * ブログ詳細ページを生成
  */
 export function createBlogDetailPage(postId) {
-    const page = document.createElement('div');
-    page.className = 'blog-page blog-detail-page home-page-container';
+  const page = document.createElement('div');
+  page.className = 'blog-page blog-detail-page page-container';
 
-    page.innerHTML = `
+  page.innerHTML = `
     <section class="blog-detail-section">
       <div class="container-large">
         <div class="blog-detail-wrapper">
@@ -143,48 +120,48 @@ export function createBlogDetailPage(postId) {
     </section>
   `;
 
-    loadBlogDetail(page, postId);
-    return page;
+  loadBlogDetail(page, postId);
+  return page;
 }
 
 async function loadBlogDetail(page, postId) {
-    const wrapper = page.querySelector('.blog-detail-wrapper');
+  const wrapper = page.querySelector('.blog-detail-wrapper');
 
-    let post = await fetchPostById(postId);
-    // フォールバック: ダミーデータから検索
-    if (!post) {
-        post = DUMMY_POSTS.find(p => p.id === postId);
-    }
+  const post = await fetchPostById(postId);
 
-    if (!post) {
-        wrapper.innerHTML = `
+  if (!post) {
+    wrapper.innerHTML = `
       <div class="blog-not-found">
         <h2>記事が見つかりませんでした</h2>
         <p>お探しの記事は存在しないか、削除された可能性があります。</p>
-        <a href="#blog" class="btn btn-outline">一覧に戻る</a>
+        <a href="${paths.blog()}" class="btn btn-outline">一覧に戻る</a>
       </div>
     `;
-        return;
-    }
+    return;
+  }
 
-    const dateStr = formatDate(post.date);
-    // 本文の改行を <p> タグに変換
-    const bodyHtml = (post.body || '')
-        .split(/\n\n+/)
-        .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`)
-        .join('');
+  const dateStr = formatDate(post.date);
+  // 本文の改行を <p> タグに変換
+  const bodyHtml = (post.body || '')
+    .split(/\n\n+/)
+    .map((p) => `<p>${p.replace(/\n/g, '<br>')}</p>`)
+    .join('');
 
-    wrapper.innerHTML = `
-    <a href="#blog" class="blog-back-link fade-up">
+  wrapper.innerHTML = `
+    <a href="${paths.blog()}" class="blog-back-link fade-up">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       一覧に戻る
     </a>
     <article class="blog-article fade-up" style="animation-delay: 0.1s;">
-      ${post.image_url ? `
+      ${
+        post.image_url
+          ? `
         <div class="blog-article-hero">
           <img src="${post.image_url}" alt="${post.title}">
         </div>
-      ` : ''}
+      `
+          : ''
+      }
       <div class="blog-article-content">
         <time class="blog-article-date" datetime="${post.date}">${dateStr}</time>
         <h1 class="blog-article-title">${post.title}</h1>
@@ -194,21 +171,21 @@ async function loadBlogDetail(page, postId) {
       </div>
     </article>
     <div class="blog-article-footer fade-up" style="animation-delay: 0.2s;">
-      <a href="#blog" class="btn btn-outline hover-magnetic">一覧に戻る</a>
+      <a href="${paths.blog()}" class="btn btn-outline hover-magnetic">一覧に戻る</a>
     </div>
   `;
 
-    // Trigger fade-in
-    page.querySelectorAll('.fade-up').forEach((el, i) => {
-        setTimeout(() => el.classList.add('visible'), 100 + i * 100);
-    });
+  // Trigger fade-in
+  page.querySelectorAll('.fade-up').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), 100 + i * 100);
+  });
 }
 
 function formatDate(dateStr) {
-    if (!dateStr) return '';
-    const d = new Date(dateStr);
-    const y = d.getFullYear();
-    const m = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
-    return `${y}.${m}.${day}`;
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}.${m}.${day}`;
 }

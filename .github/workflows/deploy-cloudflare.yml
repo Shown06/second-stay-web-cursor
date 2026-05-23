@@ -1,0 +1,37 @@
+# Cloudflare Pages へビルド & デプロイ（静的サイト + Pages Functions）
+name: Deploy to Cloudflare Pages
+
+on:
+  # push トリガーは CF secrets(CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID)を
+  # 本リポに登録してから有効化する。未登録のまま push 起動すると毎回 failure run に
+  # なるため、現状は手動(workflow_dispatch)のみ。本番は wrangler pages deploy で運用中。
+  # push:
+  #   branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build   # base="/"（Cloudflare はルート配信）
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # functions/ は dist と同じ階層から自動で取り込まれる
+          # --commit-message は ASCII 固定（日本語だと CF API が 8000111 で deploy 失敗するため github.sha を渡す）
+          command: pages deploy dist --project-name=second-stay-web --branch=main --commit-message=${{ github.sha }}

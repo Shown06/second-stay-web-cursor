@@ -23,3 +23,18 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# wrangler local secrets
+.dev.vars
+.wrangler/
+
+# 作業素材・引き継ぎ（機密/巨大・リポに含めない）
+/second stay-handoff/
+/second stay-handoff.zip
+/screenshots/
+/artifacts/
+/s
+
+# Cursor / Claude のローカル設定・汎用ルールテンプレ（reflow と同様コミットしない）
+.cursor/
+.claude/
