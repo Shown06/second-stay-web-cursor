@@ -166,9 +166,7 @@
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
 /* Blog Detail */
@@ -270,10 +268,6 @@
   .blog-grid {
     grid-template-columns: 1fr;
   }
-  .blog-article-hero {
-    height: 250px;
-  }
-  .blog-article-content {
-    padding: 24px;
-  }
+  .blog-article-hero { height: 250px; }
+  .blog-article-content { padding: 24px; }
 }

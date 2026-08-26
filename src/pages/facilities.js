@@ -1,7 +1,6 @@
-import { bookingButtonsHTML } from '../components/booking.js';
-import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL } from '../config/site.js';
 import { asset } from '../lib/asset-path.js';
 import { paths } from '../lib/paths.js';
+import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL } from '../config/site.js';
 
 const sections = [
   {
@@ -89,20 +88,14 @@ export function createFacilitiesPage() {
 
     <section class="stay-facilities-detail section">
       <div class="container">
-        ${sections
-          .map(
-            (s, i) => `
+        ${sections.map((s, i) => `
           <div class="stay-fd-block fade-up-scroll ${i % 2 === 1 ? 'stay-fd-reverse' : ''}">
             <div class="stay-fd-imgs">
-              ${s.imgs
-                .map(
-                  (img, j) => `
+              ${s.imgs.map((img, j) => `
                 <div class="stay-fd-img${j === 0 ? ' stay-fd-img-main' : ''}">
                   <img src="${asset(img)}" alt="${s.title}" loading="lazy"/>
                 </div>
-              `,
-                )
-                .join('')}
+              `).join('')}
             </div>
             <div class="stay-fd-text">
               <div class="stay-fd-icon">${s.icon}</div>
@@ -110,9 +103,7 @@ export function createFacilitiesPage() {
               <p class="stay-fd-desc">${s.desc}</p>
             </div>
           </div>
-        `,
-          )
-          .join('')}
+        `).join('')}
       </div>
     </section>
 
@@ -122,10 +113,9 @@ export function createFacilitiesPage() {
           <p class="stay-section-kicker" style="color:rgba(255,255,255,.7);">— RESERVATION —</p>
           <h2 class="stay-cta-title">ご予約・お問い合わせ</h2>
           <p class="stay-cta-desc">
-            ご予約は各予約サイトから。ご質問はお電話またはフォームでお気軽にどうぞ。
+            お電話またはフォームからお気軽にご連絡ください。
           </p>
-          ${bookingButtonsHTML()}
-          <div class="stay-cta-buttons" style="margin-top:28px;">
+          <div class="stay-cta-buttons">
             <a href="tel:${SITE_PHONE_TEL}" class="btn stay-cta-btn-phone">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.72 6.72l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>

@@ -1,3 +1,0 @@
-#!/bin/sh
-# husky pre-commit hook - run lint-staged on staged files
-npx lint-staged

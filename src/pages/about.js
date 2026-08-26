@@ -1,4 +1,3 @@
-import { HOSPICE_DONATION_URL } from '../config/site.js';
 import { paths } from '../lib/paths.js';
 
 export function createAboutPage() {
@@ -100,29 +99,18 @@ export function createAboutPage() {
       </div>
     </section>
 
-    <!-- 寄付・支援 -->
+    <!-- CTA -->
     <section class="hospice-cta section">
       <div class="container">
         <div class="hospice-cta-inner fade-up-scroll">
-          <span class="hospice-cta-icon" aria-hidden="true">💛</span>
-          <h2 class="hospice-cta-title">活動を寄付で応援する</h2>
+          <h2 class="hospice-cta-title">一緒に活動しませんか</h2>
           <p class="hospice-cta-desc">
-            伊丹こどもホスピスの実現に向けて、周囲の協力者による寄付サイトが開設されています。<br>
-            皆さまのあたたかいご支援が、子どもと家族の「もうひとつの家」につながります。
+            ご支援・ボランティア・講演依頼など、<br>お気軽にお問い合わせください。
           </p>
           <div class="hospice-cta-buttons">
-            <a href="${HOSPICE_DONATION_URL}" class="btn btn-primary hospice-cta-donate"
-               target="_blank" rel="noopener noreferrer">
-              寄付で応援する
-              <svg class="hospice-cta-extlink" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                <polyline points="15 3 21 3 21 9"/>
-                <line x1="10" y1="14" x2="21" y2="3"/>
-              </svg>
-            </a>
+            <a href="${paths.contact()}" class="btn btn-primary">お問い合わせ</a>
+            <a href="${paths.activities()}" class="btn btn-outline">活動・お知らせを見る</a>
           </div>
-          <p class="hospice-cta-note">外部の寄付サイト（syncable.biz）が別タブで開きます。</p>
         </div>
       </div>
     </section>

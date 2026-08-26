@@ -13,7 +13,6 @@ export const paths = {
     return `${base}#${id}`;
   },
   facilities: () => joinBase('facilities/'),
-  about: () => joinBase('about/'),
   blog: () => joinBase('blog/'),
   blogPost: (id) => joinBase(`blog/?id=${encodeURIComponent(id)}`),
   company: () => joinBase('company/'),

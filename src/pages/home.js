@@ -1,27 +1,13 @@
-import { bookingButtonsHTML } from '../components/booking.js';
-import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL } from '../config/site.js';
 import { asset } from '../lib/asset-path.js';
-import { fetchPosts } from '../lib/cms.js';
 import { paths } from '../lib/paths.js';
+import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL } from '../config/site.js';
 
-/* ヒーロー用スライド写真（実際の空間で過ごすシーン） */
+/* ヒーロー用スライド写真 */
 const heroSlides = [
-  {
-    src: '/assets/facilities/07_theater/Output_this_modern_kitchen_party_scene_in_maximum_-1772364548901.webp',
-    alt: '仲間と過ごすキッチンダイニング',
-  },
-  {
-    src: '/assets/facilities/01_sauna/Output_this_nighttime_rooftop_terrace_scene_in_max-1772364517088.webp',
-    alt: '夜のルーフトップとプライベートサウナ',
-  },
-  {
-    src: '/assets/facilities/07_theater/Output_this_modern_kitchen_family_scene_in_maximum-1772364569022.webp',
-    alt: '家族で楽しむキッチン',
-  },
-  {
-    src: '/assets/facilities/01_sauna/Output_this_sauna_interior_scene_in_maximum_4K_qua-1772364528959.webp',
-    alt: 'プライベートサウナでととのう',
-  },
+  { src: '/assets/facilities/01_sauna/DSC08239.webp',      alt: 'プライベートサウナ' },
+  { src: '/assets/facilities/02_living/DSC07934-Edit.webp', alt: 'リビングダイニング' },
+  { src: '/assets/facilities/07_theater/DSC07966.webp',     alt: 'シアタールーム' },
+  { src: '/assets/facilities/04_bedroom/DSC07751-HDR.webp', alt: 'ベッドルーム' },
 ];
 
 /* 施設カード */
@@ -98,13 +84,11 @@ export function createHomePage() {
 
   /* ---- HERO ---- */
   const heroSlideHTML = heroSlides
-    .map(
-      (s, i) => `
+    .map((s, i) => `
       <div class="hero-slide${i === 0 ? ' active' : ''}"
            style="background-image:url(${asset(s.src)})"
            role="img" aria-label="${s.alt}"></div>
-    `,
-    )
+    `)
     .join('');
 
   container.innerHTML = `
@@ -123,14 +107,11 @@ export function createHomePage() {
           兵庫・伊丹の高級貸別荘で、特別な時間を。
         </p>
         <div class="stay-hero-actions fade-up">
-          <a href="#reserve" class="btn btn-primary" data-scroll="reserve">
+          <a href="tel:${SITE_PHONE_TEL}" class="btn btn-primary">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2"/>
-              <line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.72 6.72l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
             </svg>
-            ご予約はこちら
+            ${SITE_PHONE_DISPLAY}
           </a>
           <a href="${paths.facilities()}" class="btn btn-outline-light">施設を見る</a>
         </div>
@@ -146,7 +127,7 @@ export function createHomePage() {
       <div class="container">
         <div class="stay-concept-inner">
           <div class="stay-concept-image fade-up-scroll">
-            <img src="${asset('/assets/facilities/07_theater/Output_this_home_theater_scene_in_maximum_4K_quali-1772364577028.webp')}" alt="SECOND STAY シアタールームで過ごす家族" loading="lazy"/>
+            <img src="${asset('/assets/concept.jpg')}" alt="SECOND STAY コンセプト" loading="lazy"/>
           </div>
           <div class="stay-concept-text fade-up-scroll">
             <p class="stay-section-kicker">— CONCEPT —</p>
@@ -176,9 +157,7 @@ export function createHomePage() {
           <p class="stay-section-desc">プライベート空間だからこそできる、特別な体験をご用意しています。</p>
         </div>
         <div class="stay-facilities-grid">
-          ${facilityCards
-            .map(
-              (c, i) => `
+          ${facilityCards.map((c, i) => `
             <div class="stay-facility-card fade-up-scroll" style="transition-delay:${(i % 3) * 0.08}s;">
               <div class="stay-facility-img-wrap">
                 <img src="${asset(c.img)}" alt="${c.title}" loading="lazy"/>
@@ -189,9 +168,7 @@ export function createHomePage() {
                 <p>${c.desc}</p>
               </div>
             </div>
-          `,
-            )
-            .join('')}
+          `).join('')}
         </div>
         <div class="stay-facilities-more fade-up-scroll">
           <a href="${paths.facilities()}" class="btn btn-outline">すべての施設を見る →</a>
@@ -208,9 +185,7 @@ export function createHomePage() {
           <p class="stay-section-desc">ご不明な点はお気軽にお問い合わせください。</p>
         </div>
         <div class="stay-faq-list">
-          ${faqs
-            .map(
-              (f, i) => `
+          ${faqs.map((f, i) => `
             <details class="stay-faq-item fade-up-scroll" style="transition-delay:${i * 0.05}s;">
               <summary class="stay-faq-q">
                 <span class="stay-faq-q-icon">Q</span>
@@ -224,9 +199,7 @@ export function createHomePage() {
                 <p>${f.a}</p>
               </div>
             </details>
-          `,
-            )
-            .join('')}
+          `).join('')}
         </div>
       </div>
     </section>
@@ -238,11 +211,9 @@ export function createHomePage() {
           <p class="stay-section-kicker">— NEWS —</p>
           <h2 class="stay-section-title">お知らせ・ブログ</h2>
         </div>
-        <div class="stay-news-grid" id="home-news-grid">
-          <div class="stay-news-loading">読み込み中...</div>
-        </div>
-        <div class="stay-news-more fade-up-scroll">
-          <a href="${paths.blog()}" class="btn btn-primary">全ブログを見る →</a>
+        <div class="stay-news-placeholder fade-up-scroll">
+          <p>最新のお知らせはブログページをご覧ください。</p>
+          <a href="${paths.blog()}" class="btn btn-primary" style="margin-top:16px;">ブログを見る →</a>
         </div>
       </div>
     </section>
@@ -254,10 +225,10 @@ export function createHomePage() {
           <p class="stay-section-kicker" style="color:rgba(255,255,255,.7);">— RESERVATION —</p>
           <h2 class="stay-cta-title">ご予約・お問い合わせ</h2>
           <p class="stay-cta-desc">
-            ご予約は各予約サイトから。ご質問・ご要望はお電話またはフォームでお気軽にどうぞ。
+            お電話またはフォームからお気軽にご連絡ください。<br>
+            ご質問・ご要望もお気軽にどうぞ。
           </p>
-          ${bookingButtonsHTML()}
-          <div class="stay-cta-buttons" style="margin-top:28px;">
+          <div class="stay-cta-buttons">
             <a href="tel:${SITE_PHONE_TEL}" class="btn stay-cta-btn-phone">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.72 6.72l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
@@ -273,20 +244,6 @@ export function createHomePage() {
 
   /* ヒーロースライダー */
   initHeroSlider(container);
-
-  /* ヘッダー内アンカー: ご予約はこちら → #reserve へスムーズスクロール */
-  container.querySelectorAll('[data-scroll]').forEach((el) => {
-    el.addEventListener('click', (e) => {
-      const target = document.getElementById(el.dataset.scroll);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  /* お知らせ・ブログ（最新3件をトップに表示） */
-  loadHomeNews(container);
 
   return container;
 }
@@ -318,61 +275,4 @@ function initHeroSlider(container) {
   });
 
   startAuto();
-}
-
-/* お知らせ・ブログ: 最新記事を3カラムで表示（先頭に New バッジ） */
-async function loadHomeNews(container) {
-  const grid = container.querySelector('#home-news-grid');
-  if (!grid) return;
-
-  const posts = await fetchPosts();
-
-  if (!posts || posts.length === 0) {
-    grid.innerHTML = '<p class="stay-news-empty">現在お知らせはありません。</p>';
-    return;
-  }
-
-  const top = posts.slice(0, 3);
-  grid.innerHTML = top
-    .map((post, i) => {
-      const excerpt = `${(post.body || '').replace(/\n/g, ' ').slice(0, 64)}…`;
-      const img = post.image_url
-        ? `<img src="${post.image_url}" alt="${escapeAttrHome(post.title)}" loading="lazy">`
-        : '<div class="stay-news-noimg"><span>NO IMAGE</span></div>';
-      return `
-      <a href="${paths.blogPost(post.id)}" class="stay-news-card fade-up-scroll">
-        <div class="stay-news-card-img">
-          ${i === 0 ? '<span class="stay-news-new">New</span>' : ''}
-          ${img}
-        </div>
-        <div class="stay-news-card-body">
-          <time class="stay-news-card-date">${formatNewsDate(post.date)}</time>
-          <h3 class="stay-news-card-title">${escapeHtmlHome(post.title)}</h3>
-          <p class="stay-news-card-excerpt">${escapeHtmlHome(excerpt)}</p>
-        </div>
-      </a>`;
-    })
-    .join('');
-
-  // 非同期で後から差し込むため、スクロールアニメは手動で可視化
-  grid.querySelectorAll('.fade-up-scroll').forEach((el, i) => {
-    setTimeout(() => el.classList.add('visible'), 60 + i * 90);
-  });
-}
-
-function formatNewsDate(dateStr) {
-  if (!dateStr) return '';
-  const d = new Date(dateStr);
-  if (Number.isNaN(d.getTime())) return dateStr;
-  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
-}
-
-function escapeHtmlHome(str) {
-  const div = document.createElement('div');
-  div.textContent = str || '';
-  return div.innerHTML;
-}
-
-function escapeAttrHome(str) {
-  return (str || '').replace(/"/g, '&quot;');
 }

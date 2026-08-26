@@ -1,5 +1,5 @@
-import { SITE_ADDRESS, SITE_NAME, SITE_PHONE_DISPLAY, SITE_PHONE_TEL } from '../config/site.js';
 import { paths } from '../lib/paths.js';
+import { SITE_NAME, SITE_PHONE_DISPLAY, SITE_PHONE_TEL, SITE_ADDRESS } from '../config/site.js';
 
 export function createCompanyPage() {
   const container = document.createElement('div');

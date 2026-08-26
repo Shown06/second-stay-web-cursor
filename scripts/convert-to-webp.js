@@ -1,14 +1,14 @@
-import fs from 'node:fs';
-import path from 'node:path';
 import sharp from 'sharp';
+import fs from 'fs';
+import path from 'path';
 
 const FACILITIES_DIR = path.resolve('public/assets/facilities');
 const MAX_WIDTH = 2400;
 const WEBP_QUALITY = 92;
 
-const CATEGORY_DIRS = fs
-  .readdirSync(FACILITIES_DIR)
-  .filter((d) => fs.statSync(path.join(FACILITIES_DIR, d)).isDirectory());
+const CATEGORY_DIRS = fs.readdirSync(FACILITIES_DIR).filter(d =>
+  fs.statSync(path.join(FACILITIES_DIR, d)).isDirectory()
+);
 
 let totalOriginal = 0;
 let totalConverted = 0;
@@ -36,16 +36,14 @@ async function convertFile(filePath) {
   fileCount++;
 
   const ratio = ((1 - newSize / originalSize) * 100).toFixed(1);
-  console.log(
-    `  ✓ ${path.basename(filePath)} → .webp  (${fmt(originalSize)} → ${fmt(newSize)}, -${ratio}%)`,
-  );
+  console.log(`  ✓ ${path.basename(filePath)} → .webp  (${fmt(originalSize)} → ${fmt(newSize)}, -${ratio}%)`);
   return outPath;
 }
 
 function fmt(bytes) {
-  if (bytes < 1024) return `${bytes}B`;
-  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(0)}KB`;
-  return `${(bytes / (1024 * 1024)).toFixed(1)}MB`;
+  if (bytes < 1024) return bytes + 'B';
+  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(0) + 'KB';
+  return (bytes / (1024 * 1024)).toFixed(1) + 'MB';
 }
 
 async function main() {
@@ -53,7 +51,9 @@ async function main() {
 
   for (const dir of CATEGORY_DIRS) {
     const dirPath = path.join(FACILITIES_DIR, dir);
-    const files = fs.readdirSync(dirPath).filter((f) => /\.(jpg|jpeg|png)$/i.test(f));
+    const files = fs.readdirSync(dirPath).filter(f =>
+      /\.(jpg|jpeg|png)$/i.test(f)
+    );
 
     if (files.length === 0) continue;
     console.log(`📁 ${dir}/ (${files.length} files)`);
@@ -74,15 +74,15 @@ async function main() {
   const manifestPath = path.join(FACILITIES_DIR, 'manifest.json');
   if (fs.existsSync(manifestPath)) {
     const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
-    manifest.categories.forEach((cat) => {
-      cat.images = cat.images.map((img) => img.replace(/\.(jpg|jpeg|png)$/i, '.webp'));
+    manifest.categories.forEach(cat => {
+      cat.images = cat.images.map(img => img.replace(/\.(jpg|jpeg|png)$/i, '.webp'));
     });
     fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
     console.log('\n📝 manifest.json を WebP 参照に更新しました');
   }
 }
 
-main().catch((err) => {
+main().catch(err => {
   console.error('❌ Error:', err);
   process.exit(1);
 });

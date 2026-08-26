@@ -4,325 +4,327 @@
 
 /* ---- ページヒーロー ---- */
 .hospice-page-hero {
-  background: linear-gradient(135deg, #faf7f2 0%, #f5ede2 50%, #f0f5ee 100%);
-  padding: 120px 0 60px;
-  position: relative;
-  overflow: hidden;
+    background: linear-gradient(135deg, #faf7f2 0%, #f5ede2 50%, #f0f5ee 100%);
+    padding: 120px 0 60px;
+    position: relative;
+    overflow: hidden;
 }
 
 .hospice-page-hero::before {
-  content: "";
-  position: absolute;
-  bottom: -40px;
-  right: -40px;
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(224, 123, 42, 0.08) 0%, transparent 70%);
-  pointer-events: none;
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(224, 123, 42, 0.08) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .hospice-page-hero-inner {
-  max-width: 720px;
+    max-width: 720px;
 }
 
 .hospice-page-title {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 700;
-  line-height: 1.4;
-  color: var(--color-text-main);
-  margin-bottom: 16px;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--color-text-main);
+    margin-bottom: 16px;
 }
 
 .hospice-page-subtitle {
-  font-size: 1rem;
-  line-height: 1.9;
-  color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--color-text-muted);
 }
 
 /* ---- 共通 ---- */
 .hospice-company-heading {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--color-text-main);
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid rgba(224, 123, 42, 0.2);
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(224, 123, 42, 0.2);
 }
 
 /* ---- ABOUT PAGE ---- */
 .hospice-about-page-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: start;
-  margin-bottom: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+    margin-bottom: 64px;
 }
 
 .hospice-about-page-text p {
-  font-size: 0.95rem;
-  line-height: 1.9;
-  color: var(--color-text-muted);
-  margin-bottom: 16px;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--color-text-muted);
+    margin-bottom: 16px;
 }
 
 .hospice-about-page-card-col {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .hospice-feature-card {
-  background: #ffffff;
-  border-radius: var(--radius-md);
-  padding: 24px 20px;
-  border: 1.5px solid rgba(61, 52, 41, 0.07);
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 24px 20px;
+    border: 1.5px solid rgba(61, 52, 41, 0.07);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .hospice-feature-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
 }
 
 .hospice-feature-icon {
-  font-size: 1.8rem;
-  flex-shrink: 0;
-  line-height: 1;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    line-height: 1;
 }
 
 .hospice-feature-card h3 {
-  font-family: var(--font-heading);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--color-text-main);
-  margin-bottom: 4px;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 4px;
 }
 
 .hospice-feature-card p {
-  font-size: 0.85rem;
-  line-height: 1.7;
-  color: var(--color-text-muted);
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
 }
 
 /* 対象ブロック */
 .hospice-target-block {
-  background: var(--color-background-alt);
-  border-radius: var(--radius-lg);
-  padding: 40px;
-  margin-bottom: 32px;
+    background: var(--color-background-alt);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    margin-bottom: 32px;
 }
 
 .hospice-target-title {
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--color-text-main);
-  margin-bottom: 28px;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 28px;
 }
 
 .hospice-target-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
 .hospice-target-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
 }
 
 .hospice-target-icon {
-  font-size: 1.4rem;
-  flex-shrink: 0;
+    font-size: 1.4rem;
+    flex-shrink: 0;
 }
 
 .hospice-target-note {
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-  opacity: 0.8;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    opacity: 0.8;
 }
 
 /* ---- ACTIVITIES PAGE ---- */
 .hospice-ig-block {
-  text-align: center;
-  max-width: 560px;
-  margin: 0 auto 64px;
-  padding: 48px 32px;
-  background: var(--color-background-blue);
-  border-radius: var(--radius-lg);
-  border: 1.5px solid rgba(91, 158, 201, 0.2);
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 64px;
+    padding: 48px 32px;
+    background: var(--color-background-blue);
+    border-radius: var(--radius-lg);
+    border: 1.5px solid rgba(91, 158, 201, 0.2);
 }
 
 .hospice-ig-icon {
-  width: 56px;
-  height: 56px;
-  margin: 0 auto 16px;
-  color: var(--color-sky);
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 16px;
+    color: var(--color-sky);
 }
 
 .hospice-ig-icon svg {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .hospice-ig-title {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--color-text-main);
-  margin-bottom: 8px;
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 8px;
 }
 
 .hospice-ig-id {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--color-sky);
-  letter-spacing: 0.04em;
-  margin-bottom: 16px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-sky);
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
 }
 
 .hospice-ig-desc {
-  font-size: 0.9rem;
-  line-height: 1.8;
-  color: var(--color-text-muted);
-  margin-bottom: 28px;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    margin-bottom: 28px;
 }
 
 .hospice-ig-btn {
-  margin: 0 auto;
+    margin: 0 auto;
 }
 
 .hospice-news-block {
-  border-top: 1.5px solid rgba(61, 52, 41, 0.1);
-  padding-top: 48px;
+    border-top: 1.5px solid rgba(61, 52, 41, 0.1);
+    padding-top: 48px;
 }
 
 .hospice-news-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--color-text-main);
-  margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 24px;
 }
 
 .hospice-news-empty {
-  background: var(--color-background-alt);
-  border-radius: var(--radius-md);
-  padding: 32px;
-  text-align: center;
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-  line-height: 1.8;
+    background: var(--color-background-alt);
+    border-radius: var(--radius-md);
+    padding: 32px;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.8;
 }
 
 /* ---- COMPANY PAGE ---- */
 .hospice-company-block {
-  margin-bottom: 48px;
+    margin-bottom: 48px;
 }
 
 .hospice-company-block p {
-  font-size: 0.95rem;
-  line-height: 1.9;
-  color: var(--color-text-muted);
-  margin-bottom: 14px;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--color-text-muted);
+    margin-bottom: 14px;
 }
 
 .hospice-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9rem;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
 }
 
 .hospice-table th,
 .hospice-table td {
-  padding: 14px 16px;
-  text-align: left;
-  border-bottom: 1px solid rgba(61, 52, 41, 0.1);
-  vertical-align: top;
-  line-height: 1.7;
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid rgba(61, 52, 41, 0.1);
+    vertical-align: top;
+    line-height: 1.7;
 }
 
 .hospice-table th {
-  width: 36%;
-  font-weight: 700;
-  color: var(--color-text-main);
-  background: rgba(224, 123, 42, 0.05);
+    width: 36%;
+    font-weight: 700;
+    color: var(--color-text-main);
+    background: rgba(224, 123, 42, 0.05);
 }
 
 .hospice-table td {
-  color: var(--color-text-muted);
+    color: var(--color-text-muted);
 }
 
 .hospice-table-link {
-  color: var(--color-sky);
-  text-decoration: none;
-  font-weight: 700;
-  transition: color var(--transition-fast);
+    color: var(--color-sky);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color var(--transition-fast);
 }
 
 .hospice-table-link:hover {
-  color: var(--color-accent);
+    color: var(--color-accent);
 }
 
 .hospice-mascot-note {
-  font-size: 0.78rem;
-  color: var(--color-text-muted);
-  opacity: 0.75;
-  margin-top: 24px;
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    opacity: 0.75;
+    margin-top: 24px;
 }
 
 /* ---- CONTACT PAGE ---- */
 .hospice-contact-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 56px;
-  align-items: start;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 56px;
+    align-items: start;
 }
 
 .form-required {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: #ffffff;
-  background: var(--color-accent);
-  padding: 1px 6px;
-  border-radius: 3px;
-  margin-left: 6px;
-  vertical-align: middle;
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: var(--color-accent);
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-left: 6px;
+    vertical-align: middle;
 }
 
 /* ---- ACCESS PAGE ---- */
 .hospice-access-block {
-  max-width: 720px;
-  margin-bottom: 32px;
+    max-width: 720px;
+    margin-bottom: 32px;
 }
 
 .hospice-access-note {
-  background: var(--color-background-alt);
-  border-left: 3px solid var(--color-green);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  padding: 16px 20px;
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  line-height: 1.8;
-  max-width: 720px;
+    background: var(--color-background-alt);
+    border-left: 3px solid var(--color-green);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 16px 20px;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    max-width: 720px;
 }
 
 /* ---- FACILITIES DETAIL ---- */
+.stay-facilities-detail {}
+
 .stay-fd-block {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -356,12 +358,12 @@
 .stay-fd-img {
   border-radius: var(--radius-md);
   overflow: hidden;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4/3;
 }
 
 .stay-fd-img-main {
   grid-column: 1 / -1;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16/9;
 }
 
 .stay-fd-img img {
@@ -375,6 +377,8 @@
 .stay-fd-img:hover img {
   transform: scale(1.04);
 }
+
+.stay-fd-text {}
 
 .stay-fd-icon {
   font-size: 2.8rem;
@@ -421,234 +425,41 @@
   color: var(--color-text-muted);
 }
 
-/* ---- ABOUT(ホスピス) ラベル・見出し ---- */
-.hospice-about-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--color-green);
-}
-
-.hospice-leaf-icon {
-  font-size: 1.1rem;
-  line-height: 1;
-}
-
-.hospice-about-page-heading {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--color-text-main);
-  margin-bottom: 18px;
-}
-
-/* ---- 寄付・支援 CTA ---- */
-.hospice-cta {
-  background: linear-gradient(135deg, #fbf6ee 0%, #f3f7f0 100%);
-}
-
-.hospice-cta-inner {
-  max-width: 640px;
-  margin: 0 auto;
-  text-align: center;
-  background: #ffffff;
-  border: 1.5px solid rgba(224, 123, 42, 0.18);
-  border-radius: var(--radius-lg);
-  padding: 48px 40px;
-  box-shadow: var(--shadow-md);
-}
-
-.hospice-cta-icon {
-  display: block;
-  font-size: 2.4rem;
-  line-height: 1;
-  margin-bottom: 12px;
-}
-
-.hospice-cta-title {
-  font-family: var(--font-heading);
-  font-size: clamp(1.4rem, 3vw, 1.9rem);
-  font-weight: 700;
-  color: var(--color-text-main);
-  margin-bottom: 16px;
-}
-
-.hospice-cta-desc {
-  font-size: 0.95rem;
-  line-height: 1.9;
-  color: var(--color-text-muted);
-  margin-bottom: 28px;
-}
-
-.hospice-cta-buttons {
-  display: flex;
-  justify-content: center;
-}
-
-.hospice-cta-donate {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.hospice-cta-extlink {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-}
-
-.hospice-cta-note {
-  font-size: 0.78rem;
-  color: var(--color-text-muted);
-  opacity: 0.8;
-  margin-top: 16px;
-}
-
-@media (max-width: 600px) {
-  .hospice-cta-inner {
-    padding: 36px 24px;
-  }
-}
-
 /* ---- RESPONSIVE ---- */
 @media (max-width: 960px) {
-  .stay-fd-block {
-    grid-template-columns: 1fr;
-    direction: ltr;
-  }
-  .stay-fd-reverse {
-    direction: ltr;
-  }
+    .stay-fd-block {
+        grid-template-columns: 1fr;
+        direction: ltr;
+    }
+    .stay-fd-reverse { direction: ltr; }
 }
 
 @media (max-width: 900px) {
-  .hospice-about-page-grid,
-  .hospice-contact-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
+    .hospice-about-page-grid,
+    .hospice-contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
 
-  .hospice-target-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .hospice-target-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-  .hospice-target-block {
-    padding: 28px 20px;
-  }
+    .hospice-target-block {
+        padding: 28px 20px;
+    }
 }
 
 @media (max-width: 600px) {
-  .hospice-page-hero {
-    padding: 100px 0 48px;
-  }
+    .hospice-page-hero {
+        padding: 100px 0 48px;
+    }
 
-  .hospice-target-grid {
-    grid-template-columns: 1fr;
-  }
+    .hospice-target-grid {
+        grid-template-columns: 1fr;
+    }
 
-  .hospice-table th {
-    width: 40%;
-  }
-}
-
-/* ---- 予約サイト導線（Airbnb / Booking.com / 直接予約） ---- */
-.stay-booking {
-  margin: 0 auto;
-  max-width: 760px;
-}
-
-.stay-booking-label {
-  font-size: 0.85rem;
-  letter-spacing: 0.06em;
-  color: var(--color-text-muted);
-  text-align: center;
-  margin-bottom: 16px;
-}
-
-/* 濃色 CTA セクション上では白文字に */
-.stay-cta .stay-booking-label {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.stay-booking-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-
-.stay-booking-btn {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 20px 22px;
-  background: #fff;
-  border: 1px solid rgba(61, 52, 41, 0.08);
-  border-radius: 18px;
-  text-decoration: none;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.stay-booking-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.16);
-}
-
-.stay-booking-name {
-  font-weight: 700;
-  font-size: 1.05rem;
-  color: var(--color-text-main);
-}
-
-.stay-booking-desc {
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-  padding-right: 18px;
-}
-
-.stay-booking-arrow {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  color: var(--color-accent);
-  font-weight: 700;
-  transition: transform 0.25s ease;
-}
-
-.stay-booking-btn:hover .stay-booking-arrow {
-  transform: translateX(4px);
-}
-
-/* お問い合わせページの予約ブロック */
-.stay-contact-booking {
-  background: var(--color-bg-alt, #faf6f0);
-}
-
-.hospice-booking-head {
-  text-align: center;
-  margin-bottom: 28px;
-}
-
-.hospice-booking-lead {
-  color: var(--color-text-muted);
-  margin-top: 8px;
-}
-
-/* フォーム送信失敗メッセージ */
-.form-error {
-  color: #c0392b;
-  font-size: 0.9rem;
-  margin-top: 14px;
-  line-height: 1.6;
-}
-
-@media (max-width: 760px) {
-  .stay-booking-grid {
-    grid-template-columns: 1fr;
-  }
+    .hospice-table th {
+        width: 40%;
+    }
 }

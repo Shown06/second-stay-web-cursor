@@ -6,16 +6,15 @@ import '../styles/home.css';
 import '../styles/blog.css';
 import '../styles/subpage.css';
 
-import { createFooter } from '../components/footer.js';
 import { createHeader } from '../components/header.js';
+import { createFooter } from '../components/footer.js';
+import { createHomePage } from '../pages/home.js';
+import { createFacilitiesPage } from '../pages/facilities.js';
+import { createBlogListPage, createBlogDetailPage } from '../pages/blog.js';
+import { createCompanyPage } from '../pages/company.js';
+import { createContactPage, createAccessPage } from '../pages/others.js';
 import { initPageAnimations } from '../effects/gsap-animations.js';
 import { paths } from '../lib/paths.js';
-import { createAboutPage } from '../pages/about.js';
-import { createBlogDetailPage, createBlogListPage } from '../pages/blog.js';
-import { createCompanyPage } from '../pages/company.js';
-import { createFacilitiesPage } from '../pages/facilities.js';
-import { createHomePage } from '../pages/home.js';
-import { createAccessPage, createContactPage } from '../pages/others.js';
 
 /**
  * @param {{ page: string; blogPostId?: string | null }} options
@@ -52,7 +51,7 @@ export function boot(options) {
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -30px 0px' },
+      { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
     );
     els.forEach((el) => io.observe(el));
   }
@@ -90,10 +89,6 @@ export function boot(options) {
       case 'facilities':
         setSubpageHeader();
         mountPage(createFacilitiesPage());
-        break;
-      case 'about':
-        setSubpageHeader();
-        mountPage(createAboutPage());
         break;
       case 'blog-list':
         setSubpageHeader();
@@ -133,11 +128,13 @@ export function boot(options) {
     /* ページトップボタン */
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
-      backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      backToTop.addEventListener('click', () =>
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      );
       window.addEventListener(
         'scroll',
         () => backToTop.classList.toggle('visible', window.scrollY > 300),
-        { passive: true },
+        { passive: true }
       );
     }
   });

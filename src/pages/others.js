@@ -1,13 +1,5 @@
-import { bookingButtonsHTML } from '../components/booking.js';
-import {
-  SITE_ADDRESS,
-  SITE_EMAIL,
-  SITE_HOURS,
-  SITE_NAME,
-  SITE_PHONE_DISPLAY,
-  SITE_PHONE_TEL,
-} from '../config/site.js';
 import { paths } from '../lib/paths.js';
+import { SITE_NAME, SITE_PHONE_DISPLAY, SITE_PHONE_TEL, SITE_ADDRESS, SITE_HOURS } from '../config/site.js';
 
 export function createContactPage() {
   const container = document.createElement('div');
@@ -33,9 +25,6 @@ export function createContactPage() {
           <div class="fade-up-scroll">
             <h2 class="hospice-company-heading">お問い合わせフォーム</h2>
             <form class="hospice-form" id="contactForm" novalidate>
-              <input type="hidden" name="_subject" value="【SECOND STAY】お問い合わせ">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_captcha" value="false">
               <div class="form-group">
                 <label for="c-name">お名前 <span class="form-required">必須</span></label>
                 <input type="text" id="c-name" name="name" class="form-input"
@@ -88,57 +77,16 @@ export function createContactPage() {
         </div>
       </div>
     </section>
-
-    <!-- ご予約（外部サイト） -->
-    <section class="stay-contact-booking section">
-      <div class="container">
-        <div class="hospice-booking-head fade-up-scroll">
-          <p class="stay-section-kicker">— RESERVATION —</p>
-          <h2 class="hospice-company-heading">今すぐご予約はこちら</h2>
-          <p class="hospice-booking-lead">空室確認・ご予約は各予約サイトから承っております。</p>
-        </div>
-        ${bookingButtonsHTML({ label: '' })}
-      </div>
-    </section>
   `;
 
   const form = container.querySelector('#contactForm');
   if (form) {
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
-
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      const original = btn.textContent;
+      btn.textContent = '送信完了しました。ありがとうございます！';
       btn.disabled = true;
-      btn.textContent = '送信中…';
-
-      try {
-        const res = await fetch(`https://formsubmit.co/ajax/${SITE_EMAIL}`, {
-          method: 'POST',
-          headers: { Accept: 'application/json' },
-          body: new FormData(form),
-        });
-        if (!res.ok) throw new Error(`status ${res.status}`);
-
-        btn.textContent = '送信完了しました。ありがとうございます！';
-        btn.style.background = 'var(--color-green)';
-        form.reset();
-      } catch (err) {
-        btn.disabled = false;
-        btn.textContent = original;
-        let errEl = form.querySelector('.form-error');
-        if (!errEl) {
-          errEl = document.createElement('p');
-          errEl.className = 'form-error';
-          btn.insertAdjacentElement('afterend', errEl);
-        }
-        errEl.textContent = `送信に失敗しました。お手数ですがお電話（${SITE_PHONE_DISPLAY}）またはメール（${SITE_EMAIL}）までご連絡ください。`;
-      }
+      btn.style.background = 'var(--color-green)';
     });
   }
 

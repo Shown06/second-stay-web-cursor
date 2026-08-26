@@ -1,5 +1,5 @@
-import { SITE_INSTAGRAM, SITE_INSTAGRAM_ID } from '../config/site.js';
 import { paths } from '../lib/paths.js';
+import { SITE_INSTAGRAM, SITE_INSTAGRAM_ID } from '../config/site.js';
 
 export function createActivitiesPage() {
   const container = document.createElement('div');

@@ -1,11 +1,5 @@
-import {
-  SITE_ADDRESS,
-  SITE_HOURS,
-  SITE_NAME,
-  SITE_PHONE_DISPLAY,
-  SITE_PHONE_TEL,
-} from '../config/site.js';
 import { paths } from '../lib/paths.js';
+import { SITE_NAME, SITE_PHONE_DISPLAY, SITE_PHONE_TEL, SITE_ADDRESS, SITE_HOURS } from '../config/site.js';
 
 export function createFooter() {
   const footer = document.createElement('footer');
@@ -32,7 +26,6 @@ export function createFooter() {
             <ul class="footer-links">
               <li><a href="${paths.home()}">トップ</a></li>
               <li><a href="${paths.facilities()}">施設・サービス</a></li>
-              <li><a href="${paths.about()}">ホスピス</a></li>
               <li><a href="${paths.blog()}">ブログ</a></li>
               <li><a href="${paths.company()}">会社概要</a></li>
               <li><a href="${paths.access()}">アクセス</a></li>

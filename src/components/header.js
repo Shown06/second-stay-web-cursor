@@ -1,5 +1,5 @@
-import { SITE_HOURS, SITE_NAME, SITE_PHONE_DISPLAY, SITE_PHONE_TEL } from '../config/site.js';
 import { paths } from '../lib/paths.js';
+import { SITE_NAME, SITE_PHONE_DISPLAY, SITE_PHONE_TEL, SITE_HOURS } from '../config/site.js';
 
 export function createHeader() {
   const header = document.createElement('header');
@@ -37,7 +37,6 @@ export function createHeader() {
         </button>
         <a href="${paths.home()}" class="nav-link">トップ</a>
         <a href="${paths.facilities()}" class="nav-link">施設・サービス</a>
-        <a href="${paths.about()}" class="nav-link">ホスピス</a>
         <a href="${paths.blog()}" class="nav-link">ブログ</a>
         <a href="${paths.company()}" class="nav-link">会社概要</a>
         <a href="${paths.access()}" class="nav-link">アクセス</a>
@@ -50,16 +49,12 @@ export function createHeader() {
   progressBar.className = 'scroll-progress';
   header.appendChild(progressBar);
 
-  window.addEventListener(
-    'scroll',
-    () => {
-      header.classList.toggle('scrolled', window.scrollY > 50);
-      const winScroll = document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      progressBar.style.width = `${height > 0 ? (winScroll / height) * 100 : 0}%`;
-    },
-    { passive: true },
-  );
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    progressBar.style.width = `${height > 0 ? (winScroll / height) * 100 : 0}%`;
+  }, { passive: true });
 
   const toggle = header.querySelector('.menu-toggle');
   const nav = header.querySelector('.nav-menu');

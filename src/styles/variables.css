@@ -8,23 +8,23 @@
   --color-background-blue: #eef4f8;
 
   /* アクセントカラー */
-  --color-accent: #e07b2a; /* オレンジ（CTA・強調） */
-  --color-accent-light: #f0a96a; /* ライトオレンジ */
-  --color-accent-hover: #c96318; /* ホバー時オレンジ */
-  --color-green: #5a9a6a; /* 葉の緑 */
-  --color-green-light: #8ec49e; /* ライトグリーン */
-  --color-sky: #5b9ec9; /* 空の青 */
-  --color-sky-light: #a2cde0; /* ライトスカイ */
-  --color-brown: #8b5e3c; /* 木目ブラウン */
-  --color-brown-light: #c49a78; /* ライトブラウン */
+  --color-accent: #e07b2a;          /* オレンジ（CTA・強調） */
+  --color-accent-light: #f0a96a;    /* ライトオレンジ */
+  --color-accent-hover: #c96318;    /* ホバー時オレンジ */
+  --color-green: #5a9a6a;           /* 葉の緑 */
+  --color-green-light: #8ec49e;     /* ライトグリーン */
+  --color-sky: #5b9ec9;             /* 空の青 */
+  --color-sky-light: #a2cde0;       /* ライトスカイ */
+  --color-brown: #8b5e3c;           /* 木目ブラウン */
+  --color-brown-light: #c49a78;     /* ライトブラウン */
 
   /* 旧 --color-primary / --color-secondary エイリアス（互換） */
   --color-primary: #e07b2a;
   --color-secondary: #f2ede5;
 
   /* テキスト */
-  --color-text-main: #3d3429; /* ダークブラウン（本文） */
-  --color-text-muted: #7a6e62; /* ミュートブラウン */
+  --color-text-main: #3d3429;       /* ダークブラウン（本文） */
+  --color-text-muted: #7a6e62;      /* ミュートブラウン */
   --color-text-light: #ffffff;
   --color-text-on-accent: #ffffff;
 
@@ -33,9 +33,9 @@
   --color-overlay-dark: rgba(61, 52, 41, 0.55);
 
   /* タイポグラフィ（丸ゴシック系） */
-  --font-main: "Zen Maru Gothic", "Kosugi Maru", "M PLUS Rounded 1c", sans-serif;
-  --font-heading: "Zen Maru Gothic", "Kosugi Maru", "M PLUS Rounded 1c", sans-serif;
-  --font-display: "Zen Maru Gothic", sans-serif;
+  --font-main: 'Zen Maru Gothic', 'Kosugi Maru', 'M PLUS Rounded 1c', sans-serif;
+  --font-heading: 'Zen Maru Gothic', 'Kosugi Maru', 'M PLUS Rounded 1c', sans-serif;
+  --font-display: 'Zen Maru Gothic', sans-serif;
 
   /* カーニング */
   font-feature-settings: "palt";
@@ -65,7 +65,7 @@
 
   /* シャドウ */
   --shadow-sm: 0 2px 8px -1px rgba(61, 52, 41, 0.08);
-  --shadow-md: 0 8px 20px -3px rgba(61, 52, 41, 0.1);
+  --shadow-md: 0 8px 20px -3px rgba(61, 52, 41, 0.10);
   --shadow-lg: 0 16px 40px -5px rgba(61, 52, 41, 0.14);
   --shadow-glow: 0 0 20px rgba(224, 123, 42, 0.25);
 
